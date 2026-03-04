@@ -3,14 +3,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ChevronLeft,
-  ChevronRight,
-  ExternalLink,
-  Zap,
-  Check,
-  MessageSquare,
-  Target,
-} from "lucide-react";
+  FaChevronLeft,
+  FaChevronRight,
+  FaExternalLinkAlt,
+  FaBolt,
+  FaCheck,
+  FaComments,
+  FaBullseye,
+} from "react-icons/fa";
 import Card from "@/components/ui/Card";
 import SectionContainer from "@/components/ui/SectionContainer";
 import Button from "@/components/ui/Button";
@@ -172,7 +172,7 @@ export default function Reviews() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <ChevronLeft className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+              <FaChevronLeft className="w-6 h-6 text-orange-600 dark:text-orange-400" />
             </motion.button>
 
             {/* Dots Indicator */}
@@ -197,7 +197,7 @@ export default function Reviews() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <ChevronRight className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+              <FaChevronRight className="w-6 h-6 text-orange-600 dark:text-orange-400" />
             </motion.button>
           </div>
 
@@ -222,14 +222,14 @@ export default function Reviews() {
           variants={staggerContainer}
         >
           {[
-            { icon: Zap, label: "Avg Response", value: "2 Hours" },
-            { icon: Check, label: "On-Time Delivery", value: "99%" },
+            { icon: FaBolt, label: "Avg Response", value: "2 Hours" },
+            { icon: FaCheck, label: "On-Time Delivery", value: "99%" },
             {
-              icon: MessageSquare,
+              icon: FaComments,
               label: "Avg Review Length",
               value: "500+ Words",
             },
-            { icon: Target, label: "Project Success", value: "100%" },
+            { icon: FaBullseye, label: "Project Success", value: "100%" },
           ].map((stat, idx) => {
             const IconComponent = stat.icon;
             return (
@@ -260,7 +260,7 @@ export default function Reviews() {
             onClick={() => window.open(PORTFOLIO_DATA.upwork, "_blank")}
           >
             View All Reviews on Upwork
-            <ExternalLink className="w-5 h-5" />
+            <FaExternalLinkAlt className="w-5 h-5" />
           </Button>
         </motion.div>
       </motion.div>

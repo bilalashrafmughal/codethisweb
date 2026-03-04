@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Trophy } from "lucide-react";
+import { FaArrowRight, FaTrophy } from "react-icons/fa";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import SectionContainer from "@/components/ui/SectionContainer";
@@ -30,16 +30,23 @@ export default function Hero() {
         <motion.div className="space-y-8" variants={staggerItem}>
           {/* Upwork Top-Rated Badge */}
           <motion.div className="inline-block" variants={fadeInUp}>
-            <motion.div
-              className="flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-300 dark:border-emerald-700 rounded-full px-4 py-2 w-fit"
-              animate={{ y: [0, -3, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
+            <a
+              href={PORTFOLIO_DATA.upwork}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer w-fit"
             >
-              <Trophy className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-              <span className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
-                Upwork Top-Rated ⭐
-              </span>
-            </motion.div>
+              <motion.div
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-300 dark:border-emerald-700 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors"
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <FaTrophy className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                <span className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
+                  Upwork Top-Rated ⭐
+                </span>
+              </motion.div>
+            </a>
           </motion.div>
 
           {/* Main Headline with Name */}
@@ -62,11 +69,27 @@ export default function Hero() {
             className="flex flex-wrap gap-4 pt-4"
             variants={staggerItem}
           >
-            <Button size="lg" className="group">
+            <Button
+              size="lg"
+              className="group"
+              onClick={() => {
+                document
+                  .querySelector("#contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               {PORTFOLIO_DATA.hero.cta}
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <FaArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline">
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => {
+                document
+                  .querySelector("#contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
               {PORTFOLIO_DATA.hero.cta2}
             </Button>
           </motion.div>

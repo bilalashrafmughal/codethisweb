@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart } from "lucide-react";
+import { FaHeart } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -36,7 +36,7 @@ export default function Footer() {
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity }}
               >
-                <Heart className="w-4 h-4 text-red-500" />
+                <FaHeart className="w-4 h-4 text-red-500" />
               </motion.span>{" "}
               by Bilal Ashraf
             </p>

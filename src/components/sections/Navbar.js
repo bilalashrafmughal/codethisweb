@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, ExternalLink } from "lucide-react";
+import { FaBars, FaTimes, FaExternalLinkAlt } from "react-icons/fa";
 import Button from "@/components/ui/Button";
 import { PORTFOLIO_DATA } from "@/constants/portfolio";
 
@@ -51,12 +51,14 @@ export default function Navbar() {
           className="flex items-center gap-3"
           whileHover={{ scale: 1.05 }}
         >
-          <div className="text-2xl font-black bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
-            Bilal
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-black text-sm">CT</span>
+            </div>
+            <div className="text-lg font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              CodeThisWeb
+            </div>
           </div>
-          <span className="hidden sm:inline text-xs font-bold bg-orange-100 dark:bg-orange-900/30 border border-orange-300 dark:border-orange-700 text-orange-700 dark:text-orange-300 px-2 py-1 rounded-full">
-            Upwork Top-Rated ⭐
-          </span>
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -74,20 +76,21 @@ export default function Navbar() {
 
         <div className="hidden md:flex gap-3">
           <Button
-            variant="outline"
+            className="cursor-pointer"
             size="sm"
-            onClick={() => window.open(PORTFOLIO_DATA.upwork, "_blank")}
-            className="gap-2"
+            onClick={() => scrollToSection("#contact")}
           >
-            View on Upwork
-            <ExternalLink className="w-4 h-4" />
+            Hire Me
           </Button>
-          <Button size="sm">Hire Me</Button>
         </div>
 
         {/* Mobile Menu Button */}
         <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isOpen ? (
+            <FaTimes className="w-6 h-6" />
+          ) : (
+            <FaBars className="w-6 h-6" />
+          )}
         </button>
       </div>
 
@@ -115,10 +118,13 @@ export default function Navbar() {
             >
               <Button variant="outline" className="w-full gap-2">
                 View on Upwork
-                <ExternalLink className="w-4 h-4" />
+                <FaExternalLinkAlt className="w-4 h-4" />
               </Button>
             </button>
-            <button className="w-full">
+            <button
+              className="w-full"
+              onClick={() => scrollToSection("#contact")}
+            >
               <Button variant="primary" className="w-full">
                 Hire Me
               </Button>

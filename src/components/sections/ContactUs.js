@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle } from "lucide-react";
+import { FaPaperPlane, FaCheckCircle } from "react-icons/fa";
 import axios from "axios";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
@@ -108,7 +108,7 @@ export default function ContactUs() {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-300 dark:border-green-700 rounded-lg flex items-center gap-3"
                 >
-                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <FaCheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
                   <p className="text-sm text-green-700 dark:text-green-300 font-medium">
                     Message sent successfully! I'll get back to you soon.
                   </p>
@@ -207,12 +207,12 @@ export default function ContactUs() {
                     </>
                   ) : isSubmitted ? (
                     <>
-                      <CheckCircle className="w-5 h-5" />
+                      <FaCheckCircle className="w-5 h-5" />
                       Message Sent
                     </>
                   ) : (
                     <>
-                      <Send className="w-5 h-5" />
+                      <FaPaperPlane className="w-5 h-5" />
                       Send Message
                     </>
                   )}

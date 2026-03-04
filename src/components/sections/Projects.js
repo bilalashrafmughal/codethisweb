@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ExternalLink, Github } from "lucide-react";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
 import SectionContainer from "@/components/ui/SectionContainer";
@@ -133,7 +133,7 @@ export default function Projects() {
                       size="sm"
                       className="flex-1 gap-2"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <FaExternalLinkAlt className="w-4 h-4" />
                       Live
                     </Button>
                     {/* <Button

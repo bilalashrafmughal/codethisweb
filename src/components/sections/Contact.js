@@ -3,16 +3,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Mail,
-  Phone,
-  Github,
-  Linkedin,
-  Briefcase,
-  Copy,
-  Check,
-  Send,
-  CheckCircle,
-} from "lucide-react";
+  FaEnvelope,
+  FaPhone,
+  FaGithub,
+  FaLinkedin,
+  FaCopy,
+  FaCheck,
+  FaPaperPlane,
+  FaCheckCircle,
+} from "react-icons/fa";
+import { FaUpwork } from "react-icons/fa6";
 import axios from "axios";
 import Button from "@/components/ui/Button";
 import SectionContainer from "@/components/ui/SectionContainer";
@@ -91,21 +91,21 @@ export default function Contact() {
 
   const contactMethods = [
     {
-      icon: <Mail className="w-6 h-6" />,
+      icon: <FaEnvelope className="w-6 h-6" />,
       label: "Email",
       value: "bilal@codethisweb.com",
     },
     {
-      icon: <Phone className="w-6 h-6" />,
+      icon: <FaPhone className="w-6 h-6" />,
       label: "Phone",
       value: PORTFOLIO_DATA.phone,
     },
   ];
 
   const socialLinks = [
-    { icon: Github, href: PORTFOLIO_DATA.github, label: "GitHub" },
-    { icon: Linkedin, href: PORTFOLIO_DATA.linkedin, label: "LinkedIn" },
-    { icon: Briefcase, href: PORTFOLIO_DATA.upwork, label: "Upwork" },
+    { icon: FaGithub, href: PORTFOLIO_DATA.github, label: "GitHub" },
+    { icon: FaLinkedin, href: PORTFOLIO_DATA.linkedin, label: "LinkedIn" },
+    { icon: FaUpwork, href: PORTFOLIO_DATA.upwork, label: "Upwork" },
   ];
 
   return (
@@ -150,7 +150,7 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-300 dark:border-green-700 rounded-lg flex items-center gap-3"
                   >
-                    <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
+                    <FaCheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
                     <p className="text-sm text-green-700 dark:text-green-300 font-medium">
                       Message sent successfully! I'll get back to you soon.
                     </p>
@@ -249,12 +249,12 @@ export default function Contact() {
                       </>
                     ) : isSubmitted ? (
                       <>
-                        <CheckCircle className="w-5 h-5" />
+                        <FaCheckCircle className="w-5 h-5" />
                         Message Sent
                       </>
                     ) : (
                       <>
-                        <Send className="w-5 h-5" />
+                        <FaPaperPlane className="w-5 h-5" />
                         Send Message
                       </>
                     )}
@@ -301,9 +301,9 @@ export default function Contact() {
                         animate={copied ? { scale: 1.2 } : { scale: 1 }}
                       >
                         {copied ? (
-                          <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
+                          <FaCheck className="w-5 h-5 text-green-600 dark:text-green-400" />
                         ) : (
-                          <Copy className="w-5 h-5 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
+                          <FaCopy className="w-5 h-5 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />
                         )}
                       </motion.div>
                     </motion.div>

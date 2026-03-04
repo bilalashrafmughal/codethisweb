@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { CheckCircle2 } from "lucide-react";
+import { FaCheckCircle } from "react-icons/fa";
 import Card from "@/components/ui/Card";
 import SectionContainer from "@/components/ui/SectionContainer";
 import { PORTFOLIO_DATA } from "@/constants/portfolio";
@@ -112,7 +112,7 @@ export default function About() {
                 className="flex items-center gap-3 text-gray-700 dark:text-gray-200"
                 variants={staggerItem}
               >
-                <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                <FaCheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0" />
                 <span className="font-medium">{highlight}</span>
               </motion.div>
             ))}
