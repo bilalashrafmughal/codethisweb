@@ -2,19 +2,94 @@
 
 import { motion } from "framer-motion";
 import {
+  FaReact,
+  FaTable,
+  FaChartBar,
+  FaNodeJs,
+  FaClipboardCheck,
+  FaFileAlt,
+  FaStripe,
+  FaRegCreditCard,
+  FaAws,
+  FaGithub,
+  FaDatabase,
   FaCode,
   FaServer,
   FaPlug,
   FaTools,
   FaLock,
   FaRocket,
-  FaChevronRight,
 } from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiStyledcomponents,
+  SiMui,
+  SiAntdesign,
+  SiRedux,
+  SiExpress,
+  SiMongodb,
+  SiPrisma,
+  SiSwagger,
+  SiPaddle,
+  SiPolars,
+  SiOpenai,
+  SiFirebase,
+  SiGoogle,
+  SiMysql,
+  SiPostgresql,
+  SiBitbucket,
+  SiRailway,
+  SiRender,
+  SiNetlify,
+  SiVercel,
+} from "react-icons/si";
+
+import { FaArrowsTurnToDots } from "react-icons/fa6";
+
 import SectionContainer from "@/components/ui/SectionContainer";
 import { PORTFOLIO_DATA } from "@/constants/portfolio";
 import { fadeInUp, staggerContainer, staggerItem } from "@/utils/animations";
 
 export default function Skills() {
+  // Icon mapping for technology icons
+  const skillIconMap = {
+    SiReact: FaReact,
+    SiNextdotjs: SiNextdotjs,
+    SiTailwindcss: SiTailwindcss,
+    SiStyledcomponents: SiStyledcomponents,
+    SiMui: SiMui,
+    SiAntdesign: SiAntdesign,
+    SiRedux: SiRedux,
+    FaTable: FaTable,
+    FaChartBar: FaChartBar,
+    SiNodedotjs: FaNodeJs,
+    SiExpress: SiExpress,
+    SiMongodb: SiMongodb,
+    SiPrisma: SiPrisma,
+    FaClipboardCheck: FaClipboardCheck,
+    FaFileAlt: FaFileAlt,
+    SiSwagger: SiSwagger,
+    FaLink: FaArrowsTurnToDots,
+    SiStripe: FaStripe,
+    FaCreditCard: SiPaddle,
+    FaSpringBolt: FaRegCreditCard,
+    FaSnowflake: SiPolars,
+    SiOpenai: SiOpenai,
+    SiFirebase: SiFirebase,
+    SiGoogle: SiGoogle,
+    SiMysql: SiMysql,
+    SiPostgresql: SiPostgresql,
+    SiAmazonaws: FaAws,
+    SiGithub: FaGithub,
+    SiBitbucket: SiBitbucket,
+    SiRailway: SiRailway,
+    SiRender: SiRender,
+    SiNetlify: SiNetlify,
+    SiVercel: SiVercel,
+    FaDatabase: FaDatabase,
+  };
+
   // Icon mapping for categories - user can replace these icons
   const categoryIcons = {
     0: FaCode, // Frontend
@@ -145,30 +220,45 @@ export default function Skills() {
 
                     {/* Skills Grid */}
                     <motion.div
-                      className="grid grid-cols-2 gap-3 pt-2 border-t-2 border-gray-200 dark:border-gray-700/50"
+                      className="grid grid-cols-2 gap-4 pt-2 border-t-2 border-gray-200 dark:border-gray-700/50"
                       variants={staggerContainer}
                     >
-                      {category.skills.map((skill, skillIdx) => (
-                        <motion.div
-                          key={skillIdx}
-                          variants={staggerItem}
-                          className="group/skill"
-                        >
+                      {category.skills.map((skill, skillIdx) => {
+                        // Handle both old string format and new object format
+                        const skillName =
+                          typeof skill === "string" ? skill : skill.name;
+                        const skillIconName =
+                          typeof skill === "string" ? null : skill.icon;
+                        const SkillIcon = skillIconName
+                          ? skillIconMap[skillIconName]
+                          : null;
+
+                        return (
                           <motion.div
-                            className={`flex items-center gap-3 px-4 py-3 rounded-xl bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 hover:border-${colors[idx].split("-")[1]}-400 dark:hover:border-gray-600 transition-all duration-300 cursor-default group-hover/skill:shadow-md`}
-                            whileHover={{ x: 4 }}
+                            key={skillIdx}
+                            variants={staggerItem}
+                            className="group/skill"
                           >
-                            <span
-                              className={`text-lg bg-gradient-to-br ${colors[idx]} bg-clip-text text-transparent font-bold`}
+                            <motion.div
+                              className={`flex flex-col items-center justify-center gap-3 px-6 py-5 rounded-xl bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 hover:border-${colors[idx].split("-")[1]}-400 dark:hover:border-gray-600 transition-all duration-300 cursor-default group-hover/skill:shadow-md h-full`}
+                              whileHover={{ x: 4 }}
                             >
-                              ◆
-                            </span>
-                            <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">
-                              {skill}
-                            </span>
+                              {SkillIcon ? (
+                                <SkillIcon className="w-7 h-7 text-blue-600 dark:text-blue-400 flex-shrink-0" />
+                              ) : (
+                                <span
+                                  className={`text-2xl bg-gradient-to-br ${colors[idx]} bg-clip-text text-transparent font-bold`}
+                                >
+                                  ◆
+                                </span>
+                              )}
+                              <span className="text-base font-semibold text-gray-800 dark:text-gray-200 text-center">
+                                {skillName}
+                              </span>
+                            </motion.div>
                           </motion.div>
-                        </motion.div>
-                      ))}
+                        );
+                      })}
                     </motion.div>
                   </motion.div>
                 </motion.div>
@@ -244,7 +334,7 @@ export default function Skills() {
 
                       {/* Items Grid */}
                       <motion.div
-                        className="grid grid-cols-2 gap-3 pt-2 border-t-2 border-gray-200 dark:border-gray-700/50"
+                        className="grid grid-cols-2 gap-4 pt-2 border-t-2 border-gray-200 dark:border-gray-700/50"
                         variants={staggerContainer}
                       >
                         {section.items.map((item, itemIdx) => (
@@ -254,10 +344,10 @@ export default function Skills() {
                             className="group/item"
                           >
                             <motion.div
-                              className={`px-4 py-3 rounded-lg text-center bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 hover:border-${section.colorClass.split("-")[1]}-400 dark:hover:border-gray-600 transition-all duration-300 group-hover/item:shadow-md`}
+                              className={`px-6 py-5 rounded-lg text-center bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 hover:border-${section.colorClass.split("-")[1]}-400 dark:hover:border-gray-600 transition-all duration-300 group-hover/item:shadow-md h-full flex items-center justify-center`}
                               whileHover={{ scale: 1.05 }}
                             >
-                              <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">
+                              <p className="text-base font-semibold text-gray-800 dark:text-gray-200">
                                 {item}
                               </p>
                             </motion.div>
