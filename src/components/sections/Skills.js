@@ -19,6 +19,7 @@ import {
   FaTools,
   FaLock,
   FaRocket,
+  FaShieldAlt,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -102,6 +103,20 @@ export default function Skills() {
   const sectionIconsMap = {
     "Authentication Methods": FaLock,
     "Deployment Platforms": FaRocket,
+  };
+
+  // Icon mapping for authentication methods and deployment items
+  const itemIconMap = {
+    // Authentication Methods
+    "Custom authentication with email & hashed passwords": FaShieldAlt,
+    "Firebase authentication": SiFirebase,
+    "OAuth (Google, GitHub)": SiGoogle,
+    // Deployment Platforms
+    AWS: FaAws,
+    Railway: SiRailway,
+    Render: SiRender,
+    Netlify: SiNetlify,
+    Vercel: SiVercel,
   };
 
   return (
@@ -337,22 +352,39 @@ export default function Skills() {
                         className="grid grid-cols-2 gap-4 pt-2 border-t-2 border-gray-200 dark:border-gray-700/50"
                         variants={staggerContainer}
                       >
-                        {section.items.map((item, itemIdx) => (
-                          <motion.div
-                            key={itemIdx}
-                            variants={staggerItem}
-                            className="group/item"
-                          >
+                        {section.items.map((item, itemIdx) => {
+                          const ItemIcon = itemIconMap[item];
+                          return (
                             <motion.div
-                              className={`px-6 py-5 rounded-lg text-center bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 hover:border-${section.colorClass.split("-")[1]}-400 dark:hover:border-gray-600 transition-all duration-300 group-hover/item:shadow-md h-full flex items-center justify-center`}
-                              whileHover={{ scale: 1.05 }}
+                              key={itemIdx}
+                              variants={staggerItem}
+                              className="group/item"
                             >
-                              <p className="text-base font-semibold text-gray-800 dark:text-gray-200">
-                                {item}
-                              </p>
+                              <motion.div
+                                className={`px-6 py-5 rounded-lg text-center bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 hover:border-${section.colorClass.split("-")[1]}-400 dark:hover:border-gray-600 transition-all duration-300 group-hover/item:shadow-md h-full flex flex-col items-center justify-center gap-3`}
+                                whileHover={{ scale: 1.05 }}
+                              >
+                                {ItemIcon ? (
+                                  <ItemIcon
+                                    className="w-7 h-7 flex-shrink-0"
+                                    style={{
+                                      color: section.colorClass.includes(
+                                        "amber",
+                                      )
+                                        ? "#92400e"
+                                        : section.colorClass.includes("green")
+                                          ? "#065f46"
+                                          : "currentColor",
+                                    }}
+                                  />
+                                ) : null}
+                                <p className="text-base font-semibold text-gray-800 dark:text-gray-200">
+                                  {item}
+                                </p>
+                              </motion.div>
                             </motion.div>
-                          </motion.div>
-                        ))}
+                          );
+                        })}
                       </motion.div>
                     </motion.div>
                   </motion.div>
