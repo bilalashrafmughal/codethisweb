@@ -58,7 +58,7 @@ export default function Projects() {
                     variants={fadeInUp}
                   >
                     <Image
-                      src={["/automateed.png", "/mis.png", "/bsaiman.png"][idx]}
+                      src={project.image}
                       alt={project.title}
                       fill
                       className="object-cover w-full h-full"

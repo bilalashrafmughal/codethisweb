@@ -74,7 +74,7 @@ export default function Hero() {
               className="group"
               onClick={() => {
                 document
-                  .querySelector("#contact")
+                  .querySelector("#projects")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
             >
