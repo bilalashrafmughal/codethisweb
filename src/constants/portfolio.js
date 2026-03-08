@@ -294,16 +294,16 @@ export const PORTFOLIO_DATA = {
       verified: true,
     },
     {
-      id: 2,
-      author: "Stefan Mitrovic",
+      id: 1,
+      author: "Leslie Alexander",
       rating: 5,
-      date: "February 2023",
-      projectTitle: "AI Coursify",
-      shortReview: "Working with Bilal was an absolute pleasure.",
-      fullReview:
-        " His expertise in React JS shone through in every aspect of the project. Not only did he deliver exceptional results, but his communication and professionalism were also top-notch. Bilal's attention to detail and problem-solving skills truly impressed us. We highly recommend Bilal to anyone seeking a talented React JS developer. Looking forward to collaborating again in the future!",
+      date: "July 2025",
+      projectTitle: "API integration and performance optimization",
+      shortReview: "Very precise methodology. Clean code. Knows his stuff.",
+      fullReview: "",
       verified: true,
     },
+
     {
       id: 3,
       author: "David Martinez",
@@ -313,6 +313,17 @@ export const PORTFOLIO_DATA = {
       shortReview: "I had the pleasure of working with Bilal",
       fullReview:
         "on a project that required an experienced React JS developer with a strong sense of design and a knack for performance optimization. I am thrilled to say that Bilal exceeded all my expectations, demonstrating exceptional skills and professionalism throughout our collaboration.From the moment we began discussing the project requirements, Bilal showed great enthusiasm and a deep understanding of React JS. His technical expertise was evident as he quickly grasped the intricacies of our project and provided valuable insights and suggestions for improving the design and optimizing performance.Bilal's ability to translate complex ideas into well-structured and efficient code was remarkable. He demonstrated a strong command of React JS, employing best practices and industry standards to build a highly functional and visually appealing user interface. His attention to detail was evident in every aspect of his work, ensuring a polished and seamless experience for our end-users.One of the standout qualities I admired in Bilal was his commitment to performance optimization. He consistently went above and beyond to fine-tune the application, implementing strategies that significantly improved its speed and responsiveness. Bilal's deep understanding of performance optimization techniques, combined with his analytical mindset, resulted in a remarkably efficient application that exceeded our performance expectations.Throughout the project, Bilal maintained excellent communication, providing regular updates on progress and promptly addressing any queries or concerns. His professionalism, reliability, and ability to meet deadlines made the entire collaboration smooth and stress-free.I would wholeheartedly recommend Bilal to anyone seeking a skilled React JS developer with a strong sense of design and expertise in performance optimization. His dedication, technical proficiency, and commitment to delivering high-quality results are truly commendable. Working with Bilal was an absolute pleasure, and I look forward to collaborating with him again on future projects.Thank you, Bilal, for your outstanding work and contributions to our project. Your expertise and professionalism have made a significant impact, and I wish you continued success in your future endeavors",
+      verified: true,
+    },
+    {
+      id: 2,
+      author: "Stefan",
+      rating: 5,
+      date: "February 2023",
+      projectTitle: "AI Coursify",
+      shortReview: "Working with Bilal was an absolute pleasure.",
+      fullReview:
+        " His expertise in React JS shone through in every aspect of the project. Not only did he deliver exceptional results, but his communication and professionalism were also top-notch. Bilal's attention to detail and problem-solving skills truly impressed us. We highly recommend Bilal to anyone seeking a talented React JS developer. Looking forward to collaborating again in the future!",
       verified: true,
     },
     {
