@@ -105,20 +105,7 @@ export default function Footer() {
             <p className="text-gray-500 text-sm">
               Let's build something amazing together
             </p>
-            <div className="flex items-center gap-6">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors text-sm"
-              >
-                Terms of Service
-              </a>
-            </div>
+            <div className="flex items-center gap-6"></div>
           </motion.div>
         </motion.div>
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { FaCheckCircle } from "react-icons/fa";
 import Card from "@/components/ui/Card";
 import SectionContainer from "@/components/ui/SectionContainer";
@@ -50,27 +49,26 @@ export default function About() {
 
             {/* Modern rounded shape with glass effect */}
             <motion.div
-              className="relative z-10 w-80 h-96 md:w-96 md:h-[480px] lg:w-[420px] lg:h-[520px] rounded-3xl overflow-hidden shadow-2xl border-2 border-white/60 dark:border-white/10 bg-gradient-to-br from-white/40 via-blue-50/30 to-purple-50/20 dark:from-white/5 dark:via-white/10 dark:to-white/5 backdrop-blur-md"
+              className="relative z-10 w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border-2 border-white/60 dark:border-white/10 bg-gradient-to-br from-white/40 via-blue-50/30 to-purple-50/20 dark:from-white/5 dark:via-white/10 dark:to-white/5 backdrop-blur-md"
               whileHover={{
                 boxShadow:
                   "0 30px 50px -15px rgba(59, 130, 246, 0.3), 0 0 30px rgba(168, 85, 247, 0.2)",
               }}
               transition={{ duration: 0.3 }}
             >
-              {/* Image */}
-              <Image
-                src="/bilal-ashraf-full-stack-developer-about-me.png"
-                alt="Bilal Ashraf - Full-Stack Developer"
-                fill
-                className="object-cover w-full h-full"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+              {/* YouTube Video */}
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/eMQ8C6feskA?rel=0&modestbranding=1"
+                title="Bilal Ashraf Full-Stack Developer Portfolio"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              ></iframe>
 
               {/* Light overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 via-transparent to-purple-400/10"></div>
-
-              {/* Vignette effect */}
-              <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/5 dark:to-white/5"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-500/10 via-transparent to-purple-400/5 pointer-events-none"></div>
             </motion.div>
           </motion.div>
 
