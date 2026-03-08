@@ -20,6 +20,8 @@ import Card from "@/components/ui/Card";
 import { PORTFOLIO_DATA } from "@/constants/portfolio";
 import { fadeInUp, staggerContainer, staggerItem } from "@/utils/animations";
 
+const BASE_URL = "https://server.bsaiman.com";
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -49,8 +51,8 @@ export default function Contact() {
     try {
       // Send data to dummy endpoint
       const response = await axios.post(
-        "https://api.example.com/contact",
-        formData,
+        `${BASE_URL}/api/portfolio/contact`,
+        { ...formData, first_name: formData.name },
         {
           headers: {
             "Content-Type": "application/json",
