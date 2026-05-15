@@ -32,7 +32,7 @@ export default function Contact() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState(null);
-  const [copied, setCopied] = useState(false);
+  const [copiedId, setCopiedId] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -85,10 +85,10 @@ export default function Contact() {
     }
   };
 
-  const copyToClipboard = (text) => {
+  const copyToClipboard = (text, id) => {
     navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
   };
 
   const contactMethods = [
@@ -121,18 +121,24 @@ export default function Contact() {
       >
         {/* Section Header */}
         <motion.div
-          className="text-center max-w-2xl mx-auto space-y-4"
+          className="text-center max-w-3xl mx-auto space-y-6"
           variants={fadeInUp}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-            Get In Touch
+          <div className="inline-block px-4 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-black tracking-widest uppercase">
+            🤝 Ready to Grow?
+          </div>
+          <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white">
+            Let&apos;s <span className="text-blue-600 italic">Discuss</span>{" "}
+            Your Business
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            Have a project in mind? Let's discuss how I can help you build
-            something amazing.
+          <p className="text-lg text-gray-600 dark:text-gray-300 xl:text-xl leading-relaxed">
+            Whether you have a fully-formed idea or just a spark of a concept,
+            we&apos;re here to help you turn it into a high-performance digital
+            reality. Let&apos;s talk about building something great together.
           </p>
-          <div className="flex justify-center">
+          <div className="flex justify-center gap-2">
             <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
+            <div className="w-12 h-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full"></div>
           </div>
         </motion.div>
 
@@ -223,14 +229,14 @@ export default function Contact() {
                 {/* Message Field */}
                 <motion.div className="space-y-2" variants={staggerItem}>
                   <label className="block text-sm font-semibold text-gray-900 dark:text-white">
-                    Message
+                    What can we help you with?
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    placeholder="Tell me about your project..."
+                    placeholder="Tell us about your project, goals, or just say hello..."
                     rows="5"
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all resize-none"
                   />
@@ -252,12 +258,12 @@ export default function Contact() {
                     ) : isSubmitted ? (
                       <>
                         <FaCheckCircle className="w-5 h-5" />
-                        Message Sent
+                        Talk Soon!
                       </>
                     ) : (
                       <>
                         <FaPaperPlane className="w-5 h-5" />
-                        Send Message
+                        Let's Discuss Now
                       </>
                     )}
                   </Button>
@@ -279,7 +285,7 @@ export default function Contact() {
               {contactMethods.map((method, idx) => (
                 <motion.button
                   key={idx}
-                  onClick={() => copyToClipboard(method.value)}
+                  onClick={() => copyToClipboard(method.value, method.label)}
                   variants={staggerItem}
                   className="w-full"
                 >
@@ -300,9 +306,13 @@ export default function Contact() {
                         </p>
                       </div>
                       <motion.div
-                        animate={copied ? { scale: 1.2 } : { scale: 1 }}
+                        animate={
+                          copiedId === method.label
+                            ? { scale: 1.2 }
+                            : { scale: 1 }
+                        }
                       >
-                        {copied ? (
+                        {copiedId === method.label ? (
                           <FaCheck className="w-5 h-5 text-green-600 dark:text-green-400" />
                         ) : (
                           <FaCopy className="w-5 h-5 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors" />

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   FaChevronLeft,
   FaChevronRight,
-  FaExternalLinkAlt,
+  FaArrowRight,
   FaBolt,
   FaCheck,
   FaComments,
@@ -57,80 +57,51 @@ export default function Reviews() {
           className="text-center max-w-3xl mx-auto space-y-4"
           variants={fadeInUp}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-            Client Reviews & Testimonials
+          <div className="inline-block px-4 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-black tracking-widest uppercase">
+            Testimonials
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">
+            What Our Clients <span className="text-blue-600">Say</span>
           </h2>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
-            Trusted by Upwork clients with consistent 5-star ratings
+            Trusted by businesses worldwide to deliver high-performance digital
+            solutions.
           </p>
           <div className="flex justify-center">
-            <div className="w-12 h-1 bg-gradient-to-r from-orange-600 to-orange-600 rounded-full"></div>
+            <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
           </div>
         </motion.div>
 
-        {/* Reviews Slider - 3 Cards at a time */}
+        {/* Reviews Slider */}
         <motion.div variants={staggerItem}>
           <AnimatePresence mode="wait">
             {currentReview && (
               <motion.div
                 key={`review-${currentIndex}`}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
               >
-                <Card className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border-2 border-orange-200 dark:border-orange-800/30 overflow-hidden">
-                  <div className="space-y-6">
-                    {/* Review Header */}
-                    <div className="flex items-start justify-between">
-                      <div className="space-y-2">
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                          {currentReview.author}
-                        </h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Project: {currentReview.projectTitle}
-                        </p>
-
-                        {/* Rating */}
-                        <div className="flex items-center gap-2">
-                          <div className="flex gap-1">
-                            {currentReview.rating &&
-                              [...Array(Math.round(currentReview.rating))].map(
-                                (_, i) => (
-                                  <span key={i} className="text-xl">
-                                    ⭐
-                                  </span>
-                                ),
-                              )}
-                          </div>
-                          <span className="text-sm font-semibold text-orange-600">
-                            {currentReview.rating?.toFixed(1) || "5.0"}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Upwork Badge */}
-                      {currentReview.verified && (
-                        <motion.div
-                          className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 border border-orange-300 dark:border-orange-700 rounded-full flex items-center gap-1"
-                          animate={{ scale: [1, 1.05, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        >
-                          <span className="text-xs font-bold text-orange-700 dark:text-orange-300">
-                            ✓ Verified
-                          </span>
-                        </motion.div>
-                      )}
+                <Card className="bg-white dark:bg-gray-800/50 border border-gray-100 dark:border-white/5 shadow-2xl shadow-blue-500/5 overflow-hidden py-10 px-8">
+                  <div className="space-y-8 max-w-4xl mx-auto text-center">
+                    {/* Rating */}
+                    <div className="flex justify-center items-center gap-1 text-amber-400">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="text-2xl">
+                          ★
+                        </span>
+                      ))}
                     </div>
 
                     {/* Short Review */}
-                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100 italic">
+                    <blockquote className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white italic leading-tight">
                       "{currentReview.shortReview}"
-                    </p>
+                    </blockquote>
 
                     {/* Full Review */}
                     <div className="space-y-4">
-                      <div className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <div className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                         <span>
                           {isExpandedReview
                             ? currentReview.fullReview
@@ -146,16 +117,21 @@ export default function Reviews() {
                             onClick={() =>
                               setIsExpandedReview(!isExpandedReview)
                             }
-                            className="ml-2 text-orange-600 dark:text-orange-400 hover:text-orange-700 dark:hover:text-orange-300 font-semibold text-sm transition-colors"
+                            className="ml-2 text-blue-600 dark:text-blue-400 hover:underline font-bold text-sm transition-colors"
                           >
                             {isExpandedReview ? "Show less" : "Show more"}
                           </button>
                         )}
                       </div>
+                    </div>
 
-                      {/* Date */}
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
-                        {currentReview.date}
+                    {/* Review Footer */}
+                    <div className="pt-8 border-t border-gray-100 dark:border-white/5 inline-flex flex-col items-center">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                        {currentReview.author}
+                      </h3>
+                      <p className="text-sm text-blue-600 dark:text-blue-400 font-medium uppercase tracking-widest mt-1">
+                        {currentReview.projectTitle}
                       </p>
                     </div>
                   </div>
@@ -165,26 +141,26 @@ export default function Reviews() {
           </AnimatePresence>
 
           {/* Navigation Buttons */}
-          <div className="flex items-center justify-between mt-8">
+          <div className="flex items-center justify-center gap-8 mt-12">
             <motion.button
               onClick={prevReview}
-              className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full hover:bg-orange-200 dark:hover:bg-orange-800/50 transition-colors"
+              className="p-4 bg-white dark:bg-gray-800 border border-gray-100 dark:border-white/5 rounded-2xl hover:border-blue-500/50 shadow-lg transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <FaChevronLeft className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+              <FaChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-400" />
             </motion.button>
 
             {/* Dots Indicator */}
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               {reviews.map((_, idx) => (
                 <motion.button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`h-2 rounded-full transition-all ${
+                  className={`h-2.5 rounded-full transition-all ${
                     idx === currentIndex
-                      ? "w-8 bg-orange-600"
-                      : "w-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400"
+                      ? "w-10 bg-blue-600"
+                      : "w-2.5 bg-gray-300 dark:bg-gray-700 hover:bg-blue-400"
                   }`}
                   whileHover={{ scale: 1.2 }}
                 />
@@ -193,74 +169,61 @@ export default function Reviews() {
 
             <motion.button
               onClick={nextReview}
-              className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full hover:bg-orange-200 dark:hover:bg-orange-800/50 transition-colors"
+              className="p-4 bg-white dark:bg-gray-800 border border-gray-100 dark:border-white/5 rounded-2xl hover:border-blue-500/50 shadow-lg transition-all"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <FaChevronRight className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+              <FaChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-400" />
             </motion.button>
           </div>
-
-          {/* Counter */}
-          <motion.div
-            className="text-center mt-6 text-gray-600 dark:text-gray-400"
-            variants={fadeInUp}
-          >
-            <p className="text-sm">
-              Review{" "}
-              <span className="font-bold text-orange-600">
-                {currentIndex + 1}
-              </span>{" "}
-              of <span className="font-bold">{reviews.length}</span>
-            </p>
-          </motion.div>
         </motion.div>
 
         {/* Stats Section */}
         <motion.div
-          className="grid md:grid-cols-4 gap-6 pt-8 border-t border-gray-200 dark:border-gray-700"
+          className="grid md:grid-cols-4 gap-6 pt-16"
           variants={staggerContainer}
         >
           {[
-            { icon: FaBolt, label: "Avg Response", value: "2 Hours" },
-            { icon: FaCheck, label: "On-Time Delivery", value: "99%" },
+            { icon: FaBolt, label: "Execution Speed", value: "High" },
+            { icon: FaCheck, label: "Success Rate", value: "100%" },
             {
               icon: FaComments,
-              label: "Avg Review Length",
-              value: "500+ Words",
+              label: "Client Satisfaction",
+              value: "100%",
             },
-            { icon: FaBullseye, label: "Project Success", value: "100%" },
+            { icon: FaBullseye, label: "Result Focused", value: "Always" },
           ].map((stat, idx) => {
             const IconComponent = stat.icon;
             return (
-              <Card
+              <div
                 key={idx}
-                className="text-center bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/10 dark:to-amber-900/10 border-orange-200 dark:border-orange-800/30"
-                animationVariant={staggerItem}
+                className="text-center p-6 rounded-3xl bg-gray-50 dark:bg-white/5 border border-transparent hover:border-blue-500/20 transition-all"
               >
-                <motion.div className="space-y-3" variants={staggerContainer}>
-                  <IconComponent className="w-10 h-10 text-orange-600 dark:text-orange-400 mx-auto" />
-                  <p className="text-2xl font-bold text-orange-600 dark:text-orange-400">
-                    {stat.value}
-                  </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              </Card>
+                <IconComponent className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+                <p className="text-2xl font-black text-gray-900 dark:text-white">
+                  {stat.value}
+                </p>
+                <p className="text-sm font-bold text-gray-500 uppercase tracking-tighter mt-1">
+                  {stat.label}
+                </p>
+              </div>
             );
           })}
         </motion.div>
 
-        {/* CTA to Upwork */}
+        {/* CTA */}
         <motion.div className="flex justify-center pt-8" variants={fadeInUp}>
           <Button
-            size="lg"
-            className="gap-2"
-            onClick={() => window.open(PORTFOLIO_DATA.upwork, "_blank")}
+            size="xl"
+            className="rounded-2xl px-12 py-6 shadow-xl shadow-blue-500/10 group"
+            onClick={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
-            View All Reviews on Upwork
-            <FaExternalLinkAlt className="w-5 h-5" />
+            Start Your Project
+            <FaArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" />
           </Button>
         </motion.div>
       </motion.div>

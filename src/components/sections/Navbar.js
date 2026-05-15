@@ -19,14 +19,11 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "#hero" },
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
-    { label: "Reviews", href: "#reviews" },
-    { label: "Approach", href: "#approach" },
+    { label: "Home", href: "#home" },
+    { label: "Solutions", href: "#solutions" },
     { label: "Services", href: "#services" },
-    { label: "Contact", href: "#contact" },
+    { label: "Case Studies", href: "#projects" },
+    { label: "Engineering CV", href: "/portfolio" },
   ];
 
   const scrollToSection = (href) => {

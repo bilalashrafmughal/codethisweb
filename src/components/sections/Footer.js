@@ -70,28 +70,28 @@ export default function Footer() {
 
             {/* Right Content - Links */}
             <motion.div className="space-y-3" variants={staggerItem}>
-              <h4 className="text-white font-semibold">Quick Links</h4>
+              <h4 className="text-white font-semibold">Discovery</h4>
               <div className="space-y-2">
                 <a
-                  href="#hero"
+                  href="#home"
                   className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
                 >
                   <FaChevronRight className="w-3 h-3" />
-                  Portfolio
+                  Home
                 </a>
                 <a
-                  href="#skills"
+                  href="#services"
                   className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
                 >
                   <FaChevronRight className="w-3 h-3" />
-                  Skills
+                  Solutions
                 </a>
                 <a
-                  href="#contact"
+                  href="/portfolio"
                   className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
                 >
                   <FaChevronRight className="w-3 h-3" />
-                  Get In Touch
+                  Engineering CV
                 </a>
               </div>
             </motion.div>

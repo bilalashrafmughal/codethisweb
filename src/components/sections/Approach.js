@@ -21,12 +21,15 @@ export default function Approach() {
           className="text-center max-w-2xl mx-auto space-y-4"
           variants={fadeInUp}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-            My Work Approach
+          <div className="inline-block px-4 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-xs font-black tracking-widest uppercase">
+            Our Process
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">
+            How We <span className="text-blue-600">Work</span>
           </h2>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
-            A structured methodology ensuring quality, reliability, and
-            excellence
+            A structured methodology designed to turn your business vision into
+            a high-performance reality.
           </p>
           <div className="flex justify-center">
             <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>

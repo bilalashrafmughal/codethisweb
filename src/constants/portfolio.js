@@ -1,8 +1,8 @@
 export const PORTFOLIO_DATA = {
-  name: "Bilal Ashraf",
-  title: "Upwork Top-Rated React.js & Node.js Developer",
+  name: "CodeThisWeb",
+  title: "Next-Gen Software & Digital Automation Agency",
   description:
-    "Top-rated full-stack developer with 6+ years of experience building scalable, high-performance web applications. Trusted by 100+ clients on Upwork with 5-star ratings.",
+    "We specialize in building scalable, high-performance web applications and digital ecosystems that automate operations and drive business growth.",
   email: "bilal@codethisweb.com",
   phone: "+92 316 7974015",
   github: "https://github.com/bilalashrafmughal",
@@ -11,21 +11,22 @@ export const PORTFOLIO_DATA = {
   upwork: "https://www.upwork.com/freelancers/bilaalashraf?viewMode=1",
 
   hero: {
-    headline: "Full-Stack Excellence, Delivered",
-    subheadline: "MERN Technologies Expert | 6+ Years Experience",
-    cta: "View My Work",
-    cta2: "Let's Connect",
+    headline: "Scale Your Business with Expert Digital Engineering",
+    subheadline:
+      "Empowering businesses worldwide with custom software solutions, automation, and full-cycle product development.",
+    cta: "Start Your Project",
+    cta2: "Our Expertise",
   },
 
   about: {
-    title: "About Me - Bilal Ashraf",
-    description: `I am Bilal Ashraf, a top-rated React.js and Node.js developer on Upwork with over 6 years of professional experience. I have successfully delivered 50+ projects for clients worldwide, maintaining a 5-star rating throughout my career. I specialize in building full-stack web applications that are scalable, performant, and user-friendly. My approach combines technical expertise with a deep understanding of business requirements to deliver solutions that exceed expectations.`,
+    title: "About CodeThisWeb",
+    description: `CodeThisWeb is a premier software development agency dedicated to transforming complex business challenges into streamline digital solutions. With a specialized focus on the MERN stack (MongoDB, Express, React, Node.js), we have successfully delivered over 50+ enterprise-grade applications. Our mission is to provide businesses with the technical leverage they need to dominate their markets through automation, scalability, and superior user experience.`,
     highlights: [
-      "Upwork Top-Rated Developer",
-      "6+ years of professional experience",
-      "50+ successful projects delivered",
-      "5-star average rating",
-      "Expert in full-stack development",
+      "Top-Rated Agency Performance",
+      "Expert Engineering Team",
+      "50+ Enterprise Solutions Delivered",
+      "100% Client Satisfaction Rate",
+      "Specialized in Scalable Architectures",
     ],
   },
 
@@ -199,61 +200,43 @@ export const PORTFOLIO_DATA = {
   ],
 
   experience: {
-    title: "Work Approach",
+    title: "Our Work Approach",
     methodology: [
       {
         step: 1,
-        title: "Discovery & Planning",
+        title: "Strategy & Discovery",
         description:
-          "I start by understanding the users, purpose, audience, and functionalities of the application.",
+          "We begin by deeply understanding your business goals, target audience, and the technical challenges we need to solve.",
       },
       {
         step: 2,
-        title: "Database Design",
+        title: "Architectural Planning",
         description:
-          "Use DrawDB to design comprehensive database schemas before development.",
+          "We design scalable database schemas and system architectures to ensure your platform can handle growth without friction.",
       },
       {
         step: 3,
-        title: "Backend Development",
+        title: "Core Engineering",
         description:
-          "Set up server, install libraries, establish folder structure, create routers and APIs.",
+          "We build robust backend systems and intuitive frontend interfaces using modern, high-performance architectures and APIs.",
       },
       {
         step: 4,
-        title: "Authentication & Security",
+        title: "Security & Integration",
         description:
-          "Implement authentication, authorization middlewares, and set up Swagger documentation.",
+          "We implement bank-grade authentication, security middlewares, and seamless third-party service connections.",
       },
       {
         step: 5,
-        title: "Frontend Development",
+        title: "Quality Assurance",
         description:
-          "Set up frontend using Vite/Create React App, install dependencies, follow design specifications.",
+          "We perform rigorous testing across devices and scenarios to ensure every feature works perfectly before we go live.",
       },
       {
         step: 6,
-        title: "Component Architecture",
+        title: "Deployment & Scaling",
         description:
-          "Create small, reusable components and hooks. Divide pages into sections for maintainability.",
-      },
-      {
-        step: 7,
-        title: "Routing & Organization",
-        description:
-          "Set up React Router with meaningful route names and implement proper code organization.",
-      },
-      {
-        step: 8,
-        title: "Version Control",
-        description:
-          "Maintain code in GitHub/BitBucket with clear commits and documentation.",
-      },
-      {
-        step: 9,
-        title: "Deployment",
-        description:
-          "Deploy applications on AWS, Railway, Render, Netlify, or Vercel as per requirements.",
+          "We deploy your system using cloud-native technologies and provide ongoing support to scale as your customer base grows.",
       },
     ],
   },
