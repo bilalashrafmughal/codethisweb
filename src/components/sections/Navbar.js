@@ -19,15 +19,24 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "Solutions", href: "#solutions" },
-    { label: "Services", href: "#services" },
-    { label: "Case Studies", href: "#projects" },
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/services" },
+    { label: "Case Studies", href: "/#projects" },
     { label: "Engineering CV", href: "/portfolio" },
   ];
 
   const scrollToSection = (href) => {
     setIsOpen(false);
+    if (
+      href.startsWith("/#") ||
+      href === "/" ||
+      href === "/services" ||
+      href === "/portfolio"
+    ) {
+      // Handle page navigation
+      window.location.href = href;
+      return;
+    }
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: "smooth" });
   };
@@ -78,7 +87,7 @@ export default function Navbar() {
             size="sm"
             onClick={() => scrollToSection("#contact")}
           >
-            Hire Me
+            Start Your Project
           </Button>
         </div>
 
@@ -124,7 +133,7 @@ export default function Navbar() {
               onClick={() => scrollToSection("#contact")}
             >
               <Button variant="primary" className="w-full">
-                Hire Me
+                Start Your Project
               </Button>
             </button>
           </div>

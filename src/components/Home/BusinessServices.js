@@ -16,7 +16,8 @@ import {
 } from "react-icons/fa";
 import SectionContainer from "@/components/ui/SectionContainer";
 import { fadeInUp, staggerContainer } from "@/utils/animations";
-import Button from "@/components/ui/Button";
+import Link from "next/link";
+import Button from "../ui/Button";
 
 const iconMap = {
   FaGlobe: <FaGlobe />,
@@ -77,15 +78,12 @@ export default function BusinessServices({
               <div className="w-14 h-14 bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
                 {iconMap[service.icon]}
               </div>
-
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-blue-600 transition-colors">
                 {service.title}
               </h3>
-
               <p className="text-gray-600 dark:text-gray-400 mb-6 flex-grow leading-relaxed">
                 {service.description}
               </p>
-
               <div className="space-y-3 border-t border-gray-100 dark:border-white/5 pt-6 mt-auto">
                 <span className="text-xs font-black uppercase tracking-widest text-blue-600 dark:text-blue-400">
                   Examples:
@@ -109,6 +107,17 @@ export default function BusinessServices({
                     ))}
                 </ul>
               </div>
+              {service.slug && (
+                <div className="mt-8 pt-4">
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group/link"
+                  >
+                    Explore This Solution
+                    <FaArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              )}{" "}
             </motion.div>
           ))}
         </div>

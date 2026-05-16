@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/sections/Navbar";
+import Footer from "@/components/sections/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,48 +14,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Full-Stack Developer | React & Node.js Expert | DevPro",
+  title: "CodeThisWeb | ROI-Driven Digital Solutions & Business Growth",
   description:
-    "Top-rated full-stack developer with 6+ years of experience in React, Node.js, and modern web technologies. Specializing in scalable applications and exceptional user experiences.",
+    "We transition businesses into the digital age with high-performance tools. CodeThisWeb provides SaaS development, AI automation, and custom web solutions designed to find you more customers and streamline operations.",
   keywords: [
-    "React Developer",
-    "Node.js Developer",
-    "Full-Stack Developer",
-    "Web Development",
-    "JavaScript",
-    "Next.js",
-    "Web Applications",
-    "Freelance Developer",
+    "Web Development Agency",
+    "Business Solutions",
+    "Digital Transformation",
+    "SaaS Development",
+    "AI Automation",
+    "Custom Software Engineering",
+    "CodeThisWeb",
   ],
-  authors: [{ name: "DevPro" }],
+  authors: [{ name: "CodeThisWeb Team" }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://yoursite.com",
-    siteName: "DevPro Portfolio",
-    title: "Full-Stack Developer | React & Node.js Expert",
+    url: "https://codethisweb.com",
+    siteName: "CodeThisWeb",
+    title: "CodeThisWeb | Premium Digital Engineering for Business Growth",
     description:
-      "Crafting digital excellence with 6+ years of experience in full-stack development",
+      "Custom digital tools built to solve business problems and find more customers.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Full-Stack Developer | React & Node.js Expert | DevPro",
+    title: "CodeThisWeb | ROI-Driven Digital Solutions",
     description:
-      "Top-rated developer specializing in React, Node.js, and modern web technologies",
+      "We build digital tools that find you more customers. Specialized in SaaS & AI.",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    google: "verification_code",
   },
 };
 
@@ -68,36 +59,73 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <head>
         <meta name="theme-color" content="#2563eb" />
-        <link rel="canonical" href="https://yoursite.com" />
+        <link rel="canonical" href="https://codethisweb.com" />
+
+        {/* Organization Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Full-Stack Developer",
-              url: "https://yoursite.com",
-              image: "https://yoursite.com/profile.jpg",
+              "@type": "Organization",
+              name: "CodeThisWeb",
+              url: "https://codethisweb.com",
+              logo: "https://codethisweb.com/logo.png",
               description:
-                "Top-rated full-stack developer with 6+ years of experience",
-              jobTitle: "Full-Stack Developer",
-              worksFor: {
-                "@type": "Organization",
-                name: "Self-employed",
+                "Providing high-performance digital solutions, SaaS development, and AI automation to help businesses grow.",
+              areaServed: "Worldwide",
+              serviceType: [
+                "Software Development",
+                "AI Automation",
+                "Business Strategy",
+                "UI/UX Design",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "Customer Support",
+                email: "hello@codethisweb.com",
               },
-              sameAs: [
-                "https://github.com",
-                "https://linkedin.com",
-                "https://twitter.com",
+            }),
+          }}
+        />
+
+        {/* BreadcrumbList Schema for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://codethisweb.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Services",
+                  item: "https://codethisweb.com/services",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Current Service",
+                  item: "https://codethisweb.com/services/[slug]",
+                },
               ],
             }),
           }}
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black text-gray-900 dark:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col`}
       >
-        {children}
+        <Navbar />
+        <main className="flex-grow pt-20">{children}</main>
+        <Footer />
       </body>
     </html>
   );
