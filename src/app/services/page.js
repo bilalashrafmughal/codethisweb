@@ -7,15 +7,26 @@ import reviews from "@/components/sections/Reviews"; // Fixing naming if needed 
 import { FaRocket, FaCheckCircle, FaUserShield } from "react-icons/fa";
 
 export const metadata = {
-  title: "Professional Web Solutions & Digital Automation | CodeThisWeb",
+  title: "Professional Digital Solutions & AI Business Automation",
   description:
-    "Explore our comprehensive suite of digital services including Custom Business Websites, SaaS Development, AI-Powered Solutions, and Workflow Automation. We build tools that drive ROI.",
-  keywords:
-    "web development, SaaS development, AI solutions, business automation, custom websites, CodeThisWeb services",
+    "Explore CodeThisWeb's comprehensive catalog of digital systems: SaaS development, AI-powered automation, custom CRM solutions, and high-performance web engineering designed for ROI and business growth.",
+  alternates: {
+    canonical: "https://codethisweb.com/services",
+  },
+  keywords: [
+    "Custom Software Solutions",
+    "Business Automation Services",
+    "SaaS Platform Development",
+    "AI Implementation for Business",
+    "Digital Engineering Agency",
+    "Enterprise Web Applications",
+    "Workflow Optimization Tools",
+  ],
   openGraph: {
-    title: "CodeThisWeb | High-Impact Digital Solutions",
+    title: "High-Impact Digital Solutions for Modern Businesses | CodeThisWeb",
     description:
-      "Transforming complex business challenges into streamlined digital products.",
+      "Transforming business challenges into scalable digital products. From AI automation to dedicated SaaS platforms.",
+    url: "https://codethisweb.com/services",
     type: "website",
   },
 };

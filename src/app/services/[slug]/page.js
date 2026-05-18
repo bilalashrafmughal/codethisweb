@@ -36,11 +36,40 @@ export async function generateMetadata({ params }) {
 
   if (!service) return { title: "Service Not Found" };
 
+  const fullTitle = `${service.title} | Specialist Digital Engineering`;
+  const fullDescription = `${service.description} CodeThisWeb provides specialized ${service.title} solutions engineered for performance, scalability, and measurable business growth.`;
+
   return {
-    title: `${service.title} | CodeThisWeb`,
-    description: service.description,
+    title: fullTitle,
+    description: fullDescription,
+    alternates: {
+      canonical: `https://codethisweb.com/services/${slug}`,
+    },
+    keywords: [
+      service.title,
+      `${service.title} solutions`,
+      `custom ${service.title} development`,
+      "business digital transformation",
+      "CodeThisWeb agency",
+      ...(service.benefits || []),
+    ],
     openGraph: {
-      title: `${service.title} | High-Performance Solutions`,
+      title: `${service.title} | Premium Solution by CodeThisWeb`,
+      description: service.description,
+      url: `https://codethisweb.com/services/${slug}`,
+      type: "article",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: service.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} | ROI-Focused Engineering`,
       description: service.description,
     },
   };
@@ -54,6 +83,42 @@ export default async function ServicePage({ params }) {
 
   return (
     <div className="bg-white dark:bg-gray-950 min-h-screen">
+      {/* Dynamic Service Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.title,
+            description: service.description,
+            provider: {
+              "@type": "ProfessionalService",
+              name: "CodeThisWeb",
+              url: "https://codethisweb.com",
+            },
+            serviceType: service.title,
+            areaServed: "Worldwide",
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Service Benefits",
+              itemListElement: service.benefits.map((benefit, index) => ({
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: benefit,
+                },
+              })),
+            },
+            step: service.process.map((step, index) => ({
+              "@type": "HowToStep",
+              name: `Step ${index + 1}`,
+              text: step,
+            })),
+          }),
+        }}
+      />
+
       {/* Hero Section */}
       <section className="pt-20 pb-16 px-4 border-b border-gray-100 dark:border-gray-800 bg-gradient-to-b from-blue-50/30 to-white dark:from-blue-900/5 dark:to-gray-950">
         <div className="max-w-4xl mx-auto text-center space-y-6">

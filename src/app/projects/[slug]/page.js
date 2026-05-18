@@ -19,13 +19,42 @@ export async function generateMetadata({ params }) {
 
   if (!project) return { title: "Project Not Found" };
 
+  const fullTitle = `${project.title} | Technical Case Study`;
+  const fullDescription = `Case Study: ${project.title}. ${project.description} Engineered by CodeThisWeb to solve complex business challenges with ${project.tags.slice(0, 3).join(", ")}.`;
+
   return {
-    title: `${project.title} | Case Study - CodeThisWeb`,
-    description: project.description,
+    title: fullTitle,
+    description: fullDescription,
+    alternates: {
+      canonical: `https://codethisweb.com/projects/${slug}`,
+    },
+    keywords: [
+      ...project.tags,
+      `${project.title} case study`,
+      "software engineering results",
+      "business digital transformation",
+      "custom system deployment",
+      "CodeThisWeb agency",
+    ],
     openGraph: {
-      title: `${project.title} | High-Performance System Deployment`,
+      title: `${project.title} | Engineering Excellence by CodeThisWeb`,
       description: project.description,
+      url: `https://codethisweb.com/projects/${slug}`,
       type: "article",
+      images: [
+        {
+          url: project.image,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | High-Performance Deployment`,
+      description: project.description,
+      images: [project.image],
     },
   };
 }
@@ -38,6 +67,34 @@ export default async function ProjectDetailPage({ params }) {
 
   return (
     <div className="bg-white dark:bg-gray-950 min-h-screen">
+      {/* Dynamic Project Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: project.title,
+            description: project.description,
+            image: `https://codethisweb.com${project.image}`,
+            url: `https://codethisweb.com/projects/${project.slug}`,
+            author: {
+              "@type": "Organization",
+              name: "CodeThisWeb",
+            },
+            keywords: project.tags.join(", "),
+            about: {
+              "@type": "Thing",
+              name: "Digital Transformation & Engineering",
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://codethisweb.com/projects/${project.slug}`,
+            },
+          }),
+        }}
+      />
+
       {/* Project Hero */}
       <section className="pt-24 pb-20 px-4 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900/50 dark:to-gray-950">
         <div className="max-w-6xl mx-auto">

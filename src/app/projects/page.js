@@ -3,11 +3,36 @@ import Contact from "@/components/sections/Contact";
 import Approach from "@/components/sections/Approach";
 
 export const metadata = {
-  title: "Case Studies & Portfolio | CodeThisWeb",
+  title: "Industrial Case Studies & Digital System Deployments",
   description:
-    "Explore our portfolio of high-performance digital systems, SaaS platforms, and AI-powered solutions. Real-world results for businesses that demand growth.",
-  keywords:
-    "portfolio, case studies, web development projects, SaaS examples, AI automation portfolio, CodeThisWeb projects",
+    "Explore CodeThisWeb's portfolio of high-performance digital systems, AI-driven platforms, and enterprise SaaS solutions. Proven technical excellence across 50+ successful deployments.",
+  alternates: {
+    canonical: "https://codethisweb.com/projects",
+  },
+  keywords: [
+    "Software Engineering Portfolio",
+    "Digital System Case Studies",
+    "AI SaaS Project Examples",
+    "Enterprise Web Applications",
+    "Scalable Architecture Portfolio",
+    "CodeThisWeb Projects",
+    "Custom Business Software Demo",
+  ],
+  openGraph: {
+    title: "Proven Digital Systems & Success Stories | CodeThisWeb",
+    description:
+      "From architecture to deployment, see how we transform complex business requirements into high-performance digital ecosystems.",
+    url: "https://codethisweb.com/projects",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "CodeThisWeb Portfolio",
+      },
+    ],
+  },
 };
 
 export default function ProjectsPage() {

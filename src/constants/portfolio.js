@@ -1,4 +1,4 @@
-export const PORTFOLIO_DATA = {
+exports.PORTFOLIO_DATA = {
   name: "CodeThisWeb",
   title: "Next-Gen Software & Digital Automation Agency",
   description:

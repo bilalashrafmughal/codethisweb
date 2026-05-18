@@ -1,4 +1,4 @@
-export const services = [
+exports.services = [
   {
     id: "business-websites",
     title: "Custom Business Websites",

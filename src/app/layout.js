@@ -14,37 +14,65 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "CodeThisWeb | ROI-Driven Digital Solutions & Business Growth",
+  metadataBase: new URL("https://codethisweb.com"),
+  title: {
+    default: "CodeThisWeb | ROI-Driven Digital Solutions & AI Automation",
+    template: "%s | CodeThisWeb Agency",
+  },
   description:
-    "We transition businesses into the digital age with high-performance tools. CodeThisWeb provides SaaS development, AI automation, and custom web solutions designed to find you more customers and streamline operations.",
+    "CodeThisWeb builds high-performance SaaS platforms, AI-powered automation tools, and custom digital systems designed to acquire customers and scale business operations.",
   keywords: [
-    "Web Development Agency",
-    "Business Solutions",
-    "Digital Transformation",
-    "SaaS Development",
-    "AI Automation",
     "Custom Software Engineering",
-    "CodeThisWeb",
+    "SaaS Development Agency",
+    "AI Business Automation",
+    "ROI-Driven Web Development",
+    "Enterprise Solutions",
+    "Digital Transformation Consultant",
+    "CodeThisWeb Agency",
+    "High-Performance Web Apps",
   ],
   authors: [{ name: "CodeThisWeb Team" }],
+  creator: "CodeThisWeb",
+  publisher: "CodeThisWeb",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://codethisweb.com",
-    siteName: "CodeThisWeb",
+    siteName: "CodeThisWeb Agency",
     title: "CodeThisWeb | Premium Digital Engineering for Business Growth",
     description:
-      "Custom digital tools built to solve business problems and find more customers.",
+      "Transforming business requirements into high-performance digital tools. Specialized in SaaS, AI, and scalable architectures.",
+    images: [
+      {
+        url: "/og-image.png", // Ensure this exists in public/
+        width: 1200,
+        height: 630,
+        alt: "CodeThisWeb - Premium Digital Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CodeThisWeb | ROI-Driven Digital Solutions",
+    title: "CodeThisWeb | Build Scalable Digital Systems",
     description:
-      "We build digital tools that find you more customers. Specialized in SaaS & AI.",
+      "We build the tools that find you more customers. ROI-focused SaaS and AI engineering.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -59,7 +87,6 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <head>
         <meta name="theme-color" content="#2563eb" />
-        <link rel="canonical" href="https://codethisweb.com" />
 
         {/* Organization Schema */}
         <script
@@ -67,23 +94,54 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "ProfessionalService", // More specific for agencies
+              "@id": "https://codethisweb.com/#organization",
               name: "CodeThisWeb",
               url: "https://codethisweb.com",
-              logo: "https://codethisweb.com/logo.png",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://codethisweb.com/logo.png",
+              },
+              image: "https://codethisweb.com/og-image.png",
               description:
-                "Providing high-performance digital solutions, SaaS development, and AI automation to help businesses grow.",
-              areaServed: "Worldwide",
-              serviceType: [
-                "Software Development",
-                "AI Automation",
-                "Business Strategy",
-                "UI/UX Design",
+                "CodeThisWeb is a high-end digital engineering agency specializing in ROI-driven SaaS development, AI business automation, and custom scalable architectures.",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "Worldwide",
+              },
+              priceRange: "$$$",
+              openingHours: "Mo-Fr 09:00-18:00",
+              sameAs: [
+                "https://github.com/bilalashrafmughal", // Update these
+                "https://www.linkedin.com/in/bilal-ashraf-317453223/",
+                "https://www.upwork.com/freelancers/bilaalashraf?viewMode=1",
               ],
-              contactPoint: {
-                "@type": "ContactPoint",
-                contactType: "Customer Support",
-                email: "hello@codethisweb.com",
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Digital Solutions",
+                itemListElement: [
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "SaaS Platform Engineering",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "AI & LLM Integration",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Business Process Automation",
+                    },
+                  },
+                ],
               },
             }),
           }}
@@ -95,27 +153,14 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                {
-                  "@type": "ListItem",
-                  position: 1,
-                  name: "Home",
-                  item: "https://codethisweb.com",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 2,
-                  name: "Services",
-                  item: "https://codethisweb.com/services",
-                },
-                {
-                  "@type": "ListItem",
-                  position: 3,
-                  name: "Current Service",
-                  item: "https://codethisweb.com/services/[slug]",
-                },
-              ],
+              "@type": "WebSite",
+              name: "CodeThisWeb",
+              url: "https://codethisweb.com",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://codethisweb.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
             }),
           }}
         />
