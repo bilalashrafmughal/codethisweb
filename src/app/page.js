@@ -19,12 +19,11 @@ export default function Home() {
         <BusinessServices services={services} limit={3} />
         <ProblemSolving />
         <SimpleSolutions />
-        <Projects />
+        <Projects limit={3} />
         <Reviews />
         <Approach />
         <Contact />
       </div>
-      <Footer />
     </main>
   );
 }

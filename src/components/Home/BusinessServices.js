@@ -122,17 +122,17 @@ export default function BusinessServices({
           ))}
         </div>
 
-        <motion.div variants={fadeInUp} className="text-center pt-8">
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-2xl group"
-            onClick={() => (window.location.href = "#contact")}
-          >
-            Get a Custom Solution
-            <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </motion.div>
+        {services.length > limit && (
+          <motion.div variants={fadeInUp} className="text-center pt-8">
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white rounded-2xl font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all group shadow-sm"
+            >
+              View All Services
+              <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+        )}
       </motion.div>
     </SectionContainer>
   );

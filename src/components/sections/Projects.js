@@ -2,15 +2,17 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
-import Card from "@/components/ui/Card";
+import Link from "next/link";
+import { FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
+
 import Badge from "@/components/ui/Badge";
 import SectionContainer from "@/components/ui/SectionContainer";
-import Button from "@/components/ui/Button";
 import { PORTFOLIO_DATA } from "@/constants/portfolio";
-import { fadeInUp, staggerContainer, staggerItem } from "@/utils/animations";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
 
-export default function Projects() {
+export default function Projects({ limit = 100 }) {
+  const displayedProjects = PORTFOLIO_DATA.projects.slice(0, limit);
+
   return (
     <SectionContainer id="projects" className="bg-white dark:bg-gray-900">
       <motion.div
@@ -43,7 +45,7 @@ export default function Projects() {
 
         {/* Projects List - Modern Alternating Layout */}
         <div className="space-y-24 md:space-y-32">
-          {PORTFOLIO_DATA.projects.map((project, idx) => (
+          {displayedProjects.map((project, idx) => (
             <motion.div
               key={project.id}
               variants={fadeInUp}
@@ -112,13 +114,22 @@ export default function Projects() {
 
                 {/* Actions */}
                 <div className="flex gap-4 pt-4">
-                  <Button
-                    size="lg"
-                    className="rounded-2xl px-8 shadow-lg shadow-blue-500/20 group"
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition-all group/btn"
                   >
                     View Case Study
-                    <FaExternalLinkAlt className="w-4 h-4 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </Button>
+                    <FaArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
+                  </Link>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-4 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors shadow-sm"
+                    title="Live Site"
+                  >
+                    <FaExternalLinkAlt className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -126,12 +137,17 @@ export default function Projects() {
         </div>
 
         {/* View All Projects Button */}
-        {/* <motion.div className="flex justify-center pt-4" variants={fadeInUp}>
-          <Button size="lg">
-            View All Projects
-            <ExternalLink className="w-5 h-5" />
-          </Button>
-        </motion.div> */}
+        {PORTFOLIO_DATA.projects.length > limit && (
+          <motion.div className="flex justify-center pt-16" variants={fadeInUp}>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white rounded-2xl font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition-all group shadow-sm"
+            >
+              View More Projects
+              <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+        )}
       </motion.div>
     </SectionContainer>
   );

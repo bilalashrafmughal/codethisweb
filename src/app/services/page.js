@@ -95,8 +95,6 @@ export default function ServicesPage() {
 
       {/* CTA Integration */}
       <Contact />
-
-      <Footer />
     </main>
   );
 }

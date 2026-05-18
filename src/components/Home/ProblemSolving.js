@@ -100,10 +100,6 @@ export default function ProblemSolving() {
                   </span>
                 </p>
               </div>
-
-              <button className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-blue-600 hover:gap-4 transition-all">
-                Learn How <FaArrowRight />
-              </button>
             </motion.div>
           ))}
         </div>

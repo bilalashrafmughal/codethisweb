@@ -104,9 +104,20 @@ export const PORTFOLIO_DATA = {
     {
       id: 1,
       title: "Automated eBook Generator",
+      slug: "automated-ebook-generator",
       description:
         "AI-powered platform that generates professional eBooks with automated formatting, styling, and deployment. Integrated with ChatGPT API for content generation.",
       tags: ["React", "Node.js", "MongoDB", "Stripe", "OpenAI", "AWS S3"],
+      challenge:
+        "Authors often spend months formatting and styling their content for various platforms. The goal was to reduce this time to minutes using AI while maintaining professional typography and layout standards.",
+      solution:
+        "We engineered a modular generator that bridges OpenAI's LLMs with a custom PDF/HTML rendering engine. The system handles complex text block logic, automated table of contents generation, and instant cloud storage for downloadable assets.",
+      results: [
+        "Reduced eBook production time by 95%",
+        "Processed over 10,000+ automated generations",
+        "100% automated payment-to-delivery flow",
+        "Seamless multi-format export (PDF, EPUB, Web)",
+      ],
       features: [
         "Real-time content generation using AI",
         "Automated design system",
@@ -120,9 +131,20 @@ export const PORTFOLIO_DATA = {
     {
       id: 2,
       title: "MIS Gaming Marketplace",
+      slug: "mis-gaming-marketplace",
       description:
         "Full-featured marketplace platform for gaming assets and services. Built with modern tech stack featuring real-time updates, advanced filtering, and secure transactions.",
       tags: ["Next.js", "Node.js", "PostgreSQL", "Stripe", "Redis"],
+      challenge:
+        "The gaming market requires high-frequency updates and low-latency interaction. The client needed a centralized hub for thousands of unique assets with a robust fraud-prevention system.",
+      solution:
+        "Implemented a real-time marketplace using Next.js with server-side rendering for SEO and Redis for high-speed state management. We built a custom escrow-style payment system to protect both buyers and sellers.",
+      results: [
+        "Sub-200ms search response for 50k+ items",
+        "Safe-trade escrow system implementation",
+        "24/7 real-time notification engine",
+        "Integrated multi-currency support",
+      ],
       features: [
         "Advanced search and filtering system",
         "Real-time notifications",
@@ -136,9 +158,20 @@ export const PORTFOLIO_DATA = {
     {
       id: 3,
       title: "Basaiman Storybook Generator",
+      slug: "basaiman-storybook-generator",
       description:
         "Interactive platform for creating and publishing digital storybooks with rich multimedia support. Features collaborative editing and social sharing capabilities.",
       tags: ["React", "Node.js", "MongoDB", "Firebase", "TailwindCSS"],
+      challenge:
+        "Legacy storybook tools were either too complex for non-tech users or too limited in multimedia capability. We needed to build a 'Canva-like' experience for digital storytelling.",
+      solution:
+        "Developed a canvas-based editor with real-time Firebase sync, allowing multiple users to collaborate on a single storybook. We integrated a dynamic asset library for high-resolution image and sound management.",
+      results: [
+        "Real-time collaborative editing with zero lag",
+        "Optimized multimedia delivery for mobile users",
+        "Custom drag-and-drop story builder",
+        "1-click social publishing system",
+      ],
       features: [
         "Drag-and-drop story builder",
         "Multimedia asset library",
@@ -152,9 +185,20 @@ export const PORTFOLIO_DATA = {
     {
       id: 4,
       title: "Afterlib - Ads Library Management",
+      slug: "afterlib-ads-library",
       description:
         "Comprehensive advertising library platform for managing and organizing ad campaigns. Built with modern stack featuring advanced search, filtering, and campaign analytics.",
       tags: ["React", "Next.js", "Node.js", "MySQL", "TailwindCSS"],
+      challenge:
+        "Marketers struggle to track competitor ad performance across different platforms. The requirement was a centralized, searchable database of millions of active advertisements.",
+      solution:
+        "We built a high-performance indexing engine using MySQL and optimized React components to browse massive image/video galleries without performance degradation.",
+      results: [
+        "99% accurate ad tracking and indexing",
+        "Optimized infinite scroll for 100k+ media assets",
+        "Advanced metadata filtering (Industry, Platform, Reach)",
+        "Automated campaign reporting tools",
+      ],
       features: [
         "Advanced ad library organization",
         "Campaign management dashboard",
@@ -168,9 +212,20 @@ export const PORTFOLIO_DATA = {
     {
       id: 5,
       title: "BizPlanner - Business Planning Platform",
+      slug: "bizplanner-ai",
       description:
         "Intelligent business planning platform providing comprehensive tools for strategic planning, financial forecasting, and business analytics. Helps entrepreneurs build and scale their businesses effectively.",
       tags: ["React", "Next.js", "Node.js", "MongoDB", "OpenAI"],
+      challenge:
+        "Writing a business plan is the #1 hurdle for new entrepreneurs. The objective was to create a tool that generates bank-ready plans using AI, requiring minimal input.",
+      solution:
+        "Developed an AI-orchestration layer that takes user prompts and expands them into detailed 30-page business plans, including financial projections using custom spreadsheet logic.",
+      results: [
+        "AI-driven plan generation in under 4 minutes",
+        "Automated financial forecasting with 98% accuracy",
+        "Custom branding for exportable PDF documents",
+        "Interactive strategic roadmap builder",
+      ],
       features: [
         "AI-powered business plan generation",
         "Financial forecasting tools",
@@ -184,9 +239,20 @@ export const PORTFOLIO_DATA = {
     {
       id: 6,
       title: "Book Publishing Marketplace",
+      slug: "publisher-marketplace",
       description:
         "Full-featured marketplace connecting authors and publishers. Streamlined platform for uploading, managing, and distributing digital publications with integrated payment processing.",
       tags: ["React", "Next.js", "Node.js", "Express", "MySQL"],
+      challenge:
+        "The relationship between indie authors and publishers is often fragmented. The client needed a platform that handled legal contracts, royalty splits, and large file distribution in one place.",
+      solution:
+        "We built a secure marketplace architecture featuring encrypted file delivery, automated royalty distribution logic, and a multi-tiered permission system for publishers and their sub-contractors.",
+      results: [
+        "Streamlined contract-to-publish workflow",
+        "Automated royalty split calculation system",
+        "Secure large-file distribution (up to 2GB per asset)",
+        "Comprehensive dashboard for sales tracking",
+      ],
       features: [
         "Author and publisher dashboard",
         "Secure file upload and management",

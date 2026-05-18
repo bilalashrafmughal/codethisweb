@@ -95,7 +95,7 @@ export default function BusinessHero() {
               className="px-10 py-6 text-xl rounded-2xl"
               onClick={() =>
                 document
-                  .getElementById("services")
+                  .getElementById("projects")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >

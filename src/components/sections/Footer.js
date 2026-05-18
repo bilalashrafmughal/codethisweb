@@ -1,128 +1,197 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaHeart, FaArrowUp, FaChevronRight } from "react-icons/fa";
-import { staggerContainer, staggerItem, fadeInUp } from "@/utils/animations";
+import Link from "next/link";
+import {
+  FaHeart,
+  FaChevronRight,
+  FaGithub,
+  FaLinkedin,
+  FaArrowUp,
+} from "react-icons/fa";
+import { SiUpwork } from "react-icons/si";
+import { staggerContainer, staggerItem } from "@/utils/animations";
+import { services } from "@/constants/services";
+import { PORTFOLIO_DATA } from "@/constants/portfolio";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  // Highlighted skills for the footer
+  const coreSkills = [
+    "Next.js 15 (App Router)",
+    "React & TypeScript",
+    "Tailwind CSS v4",
+    "Node.js Backend",
+    "AI Integration",
+    "Performance SEO",
+  ];
+
   return (
     <motion.footer
-      className="bg-gradient-to-b from-gray-900 via-gray-900 to-black border-t border-gray-800"
+      className="bg-black border-t border-gray-800 pt-20 pb-10"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-6xl mx-auto px-4 md:px-8 py-16">
-        <motion.div
-          className="space-y-12"
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="whileInView"
-          viewport={{ once: true }}
-        >
-          {/* Footer Links & Info */}
-          <motion.div
-            className="grid md:grid-cols-3 gap-8"
-            variants={staggerContainer}
-          >
-            {/* Left Content */}
-            <motion.div className="space-y-3" variants={staggerItem}>
-              <p className="text-gray-300 flex items-center gap-2 font-semibold">
-                Made with{" "}
-                <motion.span
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  <FaHeart className="w-4 h-4 text-red-500" />
-                </motion.span>{" "}
-                by CodeThisWeb
-              </p>
-              <p className="text-gray-500 text-sm">
-                © {currentYear} CodeThisWeb. All rights reserved.
-              </p>
-              <p className="text-gray-600 text-xs pt-2">
-                Building exceptional digital experiences with modern
-                technologies.
-              </p>
-            </motion.div>
-
-            {/* Center Content - Tech Stack */}
-            <motion.div className="space-y-3" variants={staggerItem}>
-              <h4 className="text-white font-semibold">Tech Stack</h4>
-              <div className="space-y-2">
-                <p className="text-gray-400 text-sm">
-                  <span className="text-blue-400">Frontend:</span> React,
-                  Next.js, Tailwind CSS
-                </p>
-                <p className="text-gray-400 text-sm">
-                  <span className="text-purple-400">Backend:</span> Node.js,
-                  Express, MongoDB
-                </p>
-                <p className="text-gray-400 text-sm">
-                  <span className="text-pink-400">Tools:</span> Git, Docker,
-                  AWS, Vercel
-                </p>
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <Link href="/" className="flex items-center gap-2 group">
+              <div className="w-10 h-10 bg-linear-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform">
+                <span className="text-white font-black text-xs">CT</span>
               </div>
-            </motion.div>
-
-            {/* Right Content - Links */}
-            <motion.div className="space-y-3" variants={staggerItem}>
-              <h4 className="text-white font-semibold">Discovery</h4>
-              <div className="space-y-2">
-                <a
-                  href="#home"
-                  className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
-                >
-                  <FaChevronRight className="w-3 h-3" />
-                  Home
-                </a>
-                <a
-                  href="#services"
-                  className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
-                >
-                  <FaChevronRight className="w-3 h-3" />
-                  Solutions
-                </a>
-                <a
-                  href="/portfolio"
-                  className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
-                >
-                  <FaChevronRight className="w-3 h-3" />
-                  Engineering CV
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Bottom Links */}
-          <motion.div
-            className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-800"
-            variants={fadeInUp}
-          >
-            <p className="text-gray-500 text-sm">
-              Let's build something amazing together
+              <span className="text-2xl font-black text-white">
+                CodeThisWeb
+              </span>
+            </Link>
+            <p className="text-gray-400 leading-relaxed text-sm">
+              We engineer high-performance digital systems and AI-powered
+              solutions that help businesses scale, automate, and dominate their
+              market.
             </p>
-            <div className="flex items-center gap-6"></div>
-          </motion.div>
-        </motion.div>
+            <div className="flex gap-4">
+              <a
+                href={PORTFOLIO_DATA.github}
+                target="_blank"
+                className="p-3 bg-gray-900 rounded-xl text-gray-400 hover:text-white hover:bg-blue-600 transition-all"
+              >
+                <FaGithub />
+              </a>
+              <a
+                href={PORTFOLIO_DATA.linkedin}
+                target="_blank"
+                className="p-3 bg-gray-900 rounded-xl text-gray-400 hover:text-white hover:bg-blue-600 transition-all"
+              >
+                <FaLinkedin />
+              </a>{" "}
+              <a
+                href={PORTFOLIO_DATA.upwork}
+                target="_blank"
+                className="p-3 bg-gray-900 rounded-xl text-gray-400 hover:text-white hover:bg-green-600 transition-all group/upwork"
+                title="View on Upwork"
+              >
+                <SiUpwork className="w-4 h-4" />
+              </a>{" "}
+            </div>
+          </div>
 
-        {/* Scroll to Top Button */}
-        <motion.button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-8 right-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl hover:shadow-blue-500/50 transition-all"
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.1, y: -5 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <FaArrowUp className="w-5 h-5" />
-        </motion.button>
+          {/* Solutions/Services Column */}
+          <div className="space-y-6">
+            <h4 className="text-white font-bold uppercase tracking-widest text-xs">
+              Direct Solutions
+            </h4>
+            <ul className="space-y-4">
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="text-gray-400 hover:text-blue-400 transition-colors text-sm flex items-center gap-2 group"
+                  >
+                    <FaChevronRight className="w-2 h-2 text-gray-600 group-hover:text-blue-400 transition-colors" />
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Case Studies Column */}
+          <div className="space-y-6">
+            <h4 className="text-white font-bold uppercase tracking-widest text-xs">
+              Built Systems
+            </h4>
+            <ul className="space-y-4">
+              {PORTFOLIO_DATA.projects.map((project) => (
+                <li key={project.slug}>
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="text-gray-400 hover:text-blue-400 transition-colors text-sm flex items-center gap-2 group"
+                  >
+                    <FaChevronRight className="w-2 h-2 text-gray-600 group-hover:text-blue-400 transition-colors" />
+                    {project.title}
+                  </Link>
+                </li>
+              ))}
+              <li className="pt-2">
+                <Link
+                  href="/projects"
+                  className="text-blue-500 hover:text-blue-400 text-sm font-bold flex items-center gap-2 underline decoration-blue-500/30 underline-offset-4"
+                >
+                  View Full Portfolio
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Quick Links & Skills */}
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <h4 className="text-white font-bold uppercase tracking-widest text-xs">
+                Technical Mastery
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {coreSkills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-3 py-1 bg-gray-900 border border-gray-800 rounded-full text-gray-400 text-[10px] font-bold uppercase tracking-wider"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-3">
+              <h4 className="text-white font-bold uppercase tracking-widest text-xs">
+                Company
+              </h4>
+              <Link
+                href="/portfolio"
+                className="block text-gray-400 hover:text-white text-sm"
+              >
+                Engineering Lead CV
+              </Link>
+              <Link
+                href="/#contact"
+                className="block text-gray-400 hover:text-white text-sm"
+              >
+                Start Your Project
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-10 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-gray-500 text-xs">
+            © {currentYear} CodeThisWeb Agency. Engineered for performance and
+            business growth.
+          </p>
+          <div className="flex items-center gap-2 text-gray-400 text-xs">
+            <span>Built with precision by</span>
+            <div className="flex items-center gap-1 font-bold text-gray-300">
+              CodeThisWeb
+              <FaHeart className="w-3 h-3 text-red-500 animate-pulse" />
+            </div>
+          </div>
+        </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      <motion.button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-10 right-10 bg-linear-to-r from-blue-600 to-purple-600 text-white p-4 rounded-2xl shadow-2xl hover:shadow-blue-500/50 transition-all z-50 group"
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        whileHover={{ scale: 1.1, y: -5 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <FaArrowUp className="w-5 h-5 group-hover:animate-bounce" />
+      </motion.button>
     </motion.footer>
   );
 }
