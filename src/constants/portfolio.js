@@ -4,7 +4,7 @@ exports.PORTFOLIO_DATA = {
   description:
     "We specialize in building scalable, high-performance web applications and digital ecosystems that automate operations and drive business growth.",
   email: "bilal@codethisweb.com",
-  phone: "+92 316 7974015",
+  phone: "+1 628 2710 970",
   github: "https://github.com/bilalashrafmughal",
   linkedin: "https://www.linkedin.com/in/bilal-ashraf-317453223/",
   twitter: "https://twitter.com/bilaalashraf",
