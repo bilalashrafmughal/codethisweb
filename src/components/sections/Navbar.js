@@ -7,6 +7,7 @@ import { FaBars, FaTimes, FaExternalLinkAlt } from "react-icons/fa";
 import Button from "@/components/ui/Button";
 import { PORTFOLIO_DATA } from "@/constants/portfolio";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,14 +64,16 @@ export default function Navbar() {
             className="flex items-center gap-3 cursor-pointer"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-black text-sm">CT</span>
-              </div>
-              <div className="text-lg font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                CodeThisWeb
-              </div>
-            </div>
+            <Image
+              src="/logo.svg"
+              alt="CodeThisWeb Logo"
+              width={150}
+              height={32}
+              className={`h-8 w-auto transition-all ${
+                scrolled ? "brightness-0 dark:brightness-100" : "brightness-100"
+              }`}
+              priority
+            />
           </motion.div>
         </Link>
 

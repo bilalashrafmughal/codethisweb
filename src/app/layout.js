@@ -100,7 +100,7 @@ export default function RootLayout({ children }) {
               url: "https://codethisweb.com",
               logo: {
                 "@type": "ImageObject",
-                url: "https://codethisweb.com/logo.png",
+                url: "https://codethisweb.com/logo.svg",
               },
               image: "https://codethisweb.com/og-image.png",
               description:

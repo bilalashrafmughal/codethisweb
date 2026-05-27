@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaHeart,
   FaChevronRight,
@@ -39,13 +40,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-linear-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-110 transition-transform">
-                <span className="text-white font-black text-xs">CT</span>
-              </div>
-              <span className="text-2xl font-black text-white">
-                CodeThisWeb
-              </span>
+            <Link href="/" className="inline-block group">
+              <Image
+                src="/logo.svg"
+                alt="CodeThisWeb Logo"
+                width={180}
+                height={40}
+                className="h-10 w-auto brightness-100 group-hover:scale-105 transition-transform"
+              />
             </Link>
             <p className="text-gray-400 leading-relaxed text-sm">
               We engineer high-performance digital systems and AI-powered
