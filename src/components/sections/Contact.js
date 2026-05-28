@@ -160,7 +160,8 @@ export default function Contact() {
                   >
                     <FaCheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
                     <p className="text-sm text-green-700 dark:text-green-300 font-medium">
-                      Message sent successfully! I'll get back to you soon.
+                      Message sent successfully! We&apos;ll get back to you
+                      soon.
                     </p>
                   </motion.div>
                 )}

@@ -32,6 +32,9 @@ export const metadata = {
 };
 
 export default function ServicesPage() {
+  services.map((service) => {
+    console.log(`✅ ${service.title}`);
+  });
   return (
     <main className="min-h-screen bg-white dark:bg-black">
       <Navbar />

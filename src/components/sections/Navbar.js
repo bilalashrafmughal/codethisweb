@@ -26,7 +26,8 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
-    { label: "Technical Expertise", href: "/portfolio" },
+    { label: "Expertise", href: "/portfolio" },
+    { label: "Contact", href: "/contact" },
   ];
 
   const scrollToSection = (href) => {
@@ -36,7 +37,8 @@ export default function Navbar() {
       href === "/" ||
       href === "/services" ||
       href === "/projects" ||
-      href === "/portfolio"
+      href === "/portfolio" ||
+      href === "/contact"
     ) {
       // Handle page navigation
       window.location.href = href;
@@ -122,7 +124,7 @@ export default function Navbar() {
           <Button
             className="cursor-pointer"
             size="sm"
-            onClick={() => scrollToSection("#contact")}
+            onClick={() => scrollToSection("/contact")}
           >
             Let's Discuss
           </Button>
@@ -189,7 +191,7 @@ export default function Navbar() {
                 </button>
                 <button
                   className="w-full"
-                  onClick={() => scrollToSection("#contact")}
+                  onClick={() => scrollToSection("/contact")}
                 >
                   <Button variant="primary" className="w-full rounded-xl py-6">
                     Start Your Project

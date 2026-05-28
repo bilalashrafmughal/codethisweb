@@ -156,7 +156,7 @@ export default function Footer() {
                 Engineering Lead CV
               </Link>
               <Link
-                href="/#contact"
+                href="/contact"
                 className="block text-gray-400 hover:text-white text-sm"
               >
                 Start Your Project
