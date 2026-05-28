@@ -26,7 +26,7 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Projects", href: "/projects" },
-    { label: "Engineering CV", href: "/portfolio" },
+    { label: "Technical Expertise", href: "/portfolio" },
   ];
 
   const scrollToSection = (href) => {
@@ -124,7 +124,7 @@ export default function Navbar() {
             size="sm"
             onClick={() => scrollToSection("#contact")}
           >
-            Start Your Project
+            Let's Discuss
           </Button>
         </div>
 
