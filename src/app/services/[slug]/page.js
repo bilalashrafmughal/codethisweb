@@ -36,41 +36,79 @@ export async function generateMetadata({ params }) {
 
   if (!service) return { title: "Service Not Found" };
 
-  const fullTitle = `${service.title} | Specialist Digital Engineering`;
-  const fullDescription = `${service.description} CodeThisWeb provides specialized ${service.title} solutions engineered for performance, scalability, and measurable business growth.`;
+  const fullTitle = `${service.title} | Premium Digital Solutions`;
+  const fullDescription = `${service.description} CodeThisWeb provides specialized ${service.title} services engineered for performance, ROI, and scalability.`;
 
   return {
+    // 1. Core SEO Configuration
     title: fullTitle,
     description: fullDescription,
-    alternates: {
-      canonical: `https://codethisweb.com/services/${slug}`,
-    },
     keywords: [
       service.title,
       `${service.title} solutions`,
-      `custom ${service.title} development`,
-      "business digital transformation",
-      "CodeThisWeb agency",
-      ...(service.benefits || []),
+      `custom ${service.title} services`,
+      "CodeThisWeb Agency",
+      "SaaS Development",
+      "AI Automation",
     ],
+
+    // 2. Creator Details & Attribution
+    authors: [{ name: "CodeThisWeb Team", url: "https://codethisweb.com" }],
+    creator: "CodeThisWeb",
+    publisher: "CodeThisWeb Agency",
+
+    // 3. Application & Category Parameters
+    category: "Software Engineering",
+
+    // 4. Metadata Base & Canonical Links
+    metadataBase: new URL("https://codethisweb.com"),
+    alternates: {
+      canonical: `/services/${slug}`,
+    },
+
+    // 5. Open Graph (Social Media Sharing)
     openGraph: {
-      title: `${service.title} | Premium Solution by CodeThisWeb`,
-      description: service.description,
+      type: "website",
+      title: fullTitle,
+      description: fullDescription,
       url: `https://codethisweb.com/services/${slug}`,
-      type: "article",
+      siteName: "CodeThisWeb Agency",
+      locale: "en_US",
       images: [
         {
           url: "/og-image.png",
           width: 1200,
           height: 630,
-          alt: service.title,
+          alt: `CodeThisWeb - ${service.title}`,
         },
       ],
     },
+
+    // 6. Twitter Cards
     twitter: {
       card: "summary_large_image",
-      title: `${service.title} | ROI-Focused Engineering`,
-      description: service.description,
+      site: "@codethisweb",
+      creator: "@codethisweb",
+      title: fullTitle,
+      description: fullDescription,
+      images: ["/og-image.png"],
+    },
+
+    // 7. Control Search Engine Behavior
+    robots: {
+      index: true,
+      follow: true,
+      nocache: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }

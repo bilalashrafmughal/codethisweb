@@ -23,11 +23,9 @@ export async function generateMetadata({ params }) {
   const fullDescription = `Case Study: ${project.title}. ${project.description} Engineered by CodeThisWeb to solve complex business challenges with ${project.tags.slice(0, 3).join(", ")}.`;
 
   return {
+    // 1. Core SEO Configuration
     title: fullTitle,
     description: fullDescription,
-    alternates: {
-      canonical: `https://codethisweb.com/projects/${slug}`,
-    },
     keywords: [
       ...project.tags,
       `${project.title} case study`,
@@ -36,11 +34,29 @@ export async function generateMetadata({ params }) {
       "custom system deployment",
       "CodeThisWeb agency",
     ],
+
+    // 2. Creator Details & Attribution
+    authors: [{ name: "CodeThisWeb Team", url: "https://codethisweb.com" }],
+    creator: "CodeThisWeb",
+    publisher: "CodeThisWeb Agency",
+
+    // 3. Application & Category Parameters
+    category: "Software Engineering",
+
+    // 4. Metadata Base & Canonical Links
+    metadataBase: new URL("https://codethisweb.com"),
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
+
+    // 5. Open Graph (Social Media Sharing)
     openGraph: {
+      type: "article",
       title: `${project.title} | Engineering Excellence by CodeThisWeb`,
       description: project.description,
       url: `https://codethisweb.com/projects/${slug}`,
-      type: "article",
+      siteName: "CodeThisWeb Agency",
+      locale: "en_US",
       images: [
         {
           url: project.image,
@@ -50,15 +66,35 @@ export async function generateMetadata({ params }) {
         },
       ],
     },
+
+    // 6. Twitter Cards
     twitter: {
       card: "summary_large_image",
-      title: `${project.title} | High-Performance Deployment`,
-      description: project.description,
+      site: "@codethisweb",
+      creator: "@codethisweb",
+      title: fullTitle,
+      description: fullDescription,
       images: [project.image],
+    },
+
+    // 7. Control Search Engine Behavior
+    robots: {
+      index: true,
+      follow: true,
+      nocache: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
-
 export default async function ProjectDetailPage({ params }) {
   const { slug } = await params;
   const project = PORTFOLIO_DATA.projects.find((p) => p.slug === slug);

@@ -30,10 +30,21 @@ export const metadata = {
     "Digital Transformation Consultant",
     "CodeThisWeb Agency",
     "High-Performance Web Apps",
-  ],
-  authors: [{ name: "CodeThisWeb Team" }],
+  ].join(", "),
+  authors: [{ name: "CodeThisWeb Team", url: "https://codethisweb.com" }],
   creator: "CodeThisWeb",
-  publisher: "CodeThisWeb",
+  publisher: "CodeThisWeb Agency",
+
+  // Application & Category Parameters
+  applicationName: "CodeThisWeb Agency",
+  category: "Software Engineering & AI",
+
+  // Metadata Base & Canonical Links
+  metadataBase: new URL("https://codethisweb.com"),
+  alternates: {
+    canonical: "/",
+  },
+
   formatDetection: {
     email: false,
     address: false,
@@ -58,6 +69,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@codethisweb", // Update if you have a specific handle
+    creator: "@codethisweb",
     title: "CodeThisWeb | Build Scalable Digital Systems",
     description:
       "We build the tools that find you more customers. ROI-focused SaaS and AI engineering.",
@@ -66,6 +79,10 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
+    "max-video-preview": -1,
+    "max-image-preview": "large",
+    "max-snippet": -1,
     googleBot: {
       index: true,
       follow: true,
@@ -147,7 +164,7 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        {/* BreadcrumbList Schema for SEO */}
+        {/* WebSite Schema with Search Action */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -156,10 +173,15 @@ export default function RootLayout({ children }) {
               "@type": "WebSite",
               name: "CodeThisWeb",
               url: "https://codethisweb.com",
+              description:
+                "Best ROI-driven digital solutions and AI automation platform. Premium engineering for SaaS, CRM, and custom business tools.",
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://codethisweb.com/?s={search_term_string}",
-                "query-input": "required name=search_term_string",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate:
+                    "https://codethisweb.com/search?q={search_term_string}",
+                },
               },
             }),
           }}

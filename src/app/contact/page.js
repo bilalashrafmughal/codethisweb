@@ -3,9 +3,79 @@ import SectionContainer from "@/components/ui/SectionContainer";
 import { FaClock, FaCheckCircle, FaRocket } from "react-icons/fa";
 
 export const metadata = {
+  // 1. Core SEO Configuration
   title: "Contact Us | CodeThisWeb Agency",
   description:
     "Get in touch with CodeThisWeb for custom business websites, SaaS platforms, and AI-powered solutions. Let's discuss your next project.",
+  keywords: [
+    "Contact CodeThisWeb",
+    "Hire SaaS Developers",
+    "AI Automation Consultant",
+    "Custom Software Quote",
+    "Hire Digital Engineering Agency",
+    "CodeThisWeb Support",
+  ],
+
+  // 2. Creator Details & Attribution
+  authors: [{ name: "CodeThisWeb Team", url: "https://codethisweb.com" }],
+  creator: "CodeThisWeb",
+  publisher: "CodeThisWeb Agency",
+
+  // 3. Application & Category Parameters
+  category: "Software Engineering",
+
+  // 4. Metadata Base & Canonical Links
+  metadataBase: new URL("https://codethisweb.com"),
+  alternates: {
+    canonical: "/contact",
+  },
+
+  // 5. Open Graph (Social Media Sharing)
+  openGraph: {
+    type: "website",
+    title: "Start Your Digital Project | CodeThisWeb Agency",
+    description:
+      "Ready to scale your business? Contact CodeThisWeb for premium ROI-driven engineering and AI-powered solutions.",
+    url: "https://codethisweb.com/contact",
+    siteName: "CodeThisWeb Agency",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Contact CodeThisWeb Agency",
+      },
+    ],
+  },
+
+  // 6. Twitter Cards
+  twitter: {
+    card: "summary_large_image",
+    site: "@codethisweb",
+    creator: "@codethisweb",
+    title: "Contact Us | CodeThisWeb Agency",
+    description:
+      "Ready to scale your business? Contact CodeThisWeb for premium ROI-driven engineering and AI-powered solutions.",
+    images: ["/og-image.png"],
+  },
+
+  // 7. Control Search Engine Behavior
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    "max-video-preview": -1,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function ContactPage() {

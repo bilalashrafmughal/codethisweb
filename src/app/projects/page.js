@@ -3,12 +3,10 @@ import Contact from "@/components/sections/Contact";
 import Approach from "@/components/sections/Approach";
 
 export const metadata = {
+  // 1. Core SEO Configuration
   title: "Industrial Case Studies & Digital System Deployments",
   description:
     "Explore CodeThisWeb's portfolio of high-performance digital systems, AI-driven platforms, and enterprise SaaS solutions. Proven technical excellence across 50+ successful deployments.",
-  alternates: {
-    canonical: "https://codethisweb.com/projects",
-  },
   keywords: [
     "Software Engineering Portfolio",
     "Digital System Case Studies",
@@ -18,20 +16,66 @@ export const metadata = {
     "CodeThisWeb Projects",
     "Custom Business Software Demo",
   ],
+
+  // 2. Creator Details & Attribution
+  authors: [{ name: "CodeThisWeb Team", url: "https://codethisweb.com" }],
+  creator: "CodeThisWeb",
+  publisher: "CodeThisWeb Agency",
+
+  // 3. Application & Category Parameters
+  category: "Software Engineering",
+
+  // 4. Metadata Base & Canonical Links
+  metadataBase: new URL("https://codethisweb.com"),
+  alternates: {
+    canonical: "/projects",
+  },
+
+  // 5. Open Graph (Social Media Sharing)
   openGraph: {
+    type: "website",
     title: "Proven Digital Systems & Success Stories | CodeThisWeb",
     description:
       "From architecture to deployment, see how we transform complex business requirements into high-performance digital ecosystems.",
     url: "https://codethisweb.com/projects",
-    type: "website",
+    siteName: "CodeThisWeb Agency",
+    locale: "en_US",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "CodeThisWeb Portfolio",
+        alt: "CodeThisWeb Projects - Industrial Grade Engineering Portfolio",
       },
     ],
+  },
+
+  // 6. Twitter Cards
+  twitter: {
+    card: "summary_large_image",
+    site: "@codethisweb",
+    creator: "@codethisweb",
+    title: "Proven Digital Systems & Success Stories | CodeThisWeb",
+    description:
+      "From architecture to deployment, see how we transform complex business requirements into high-performance digital ecosystems.",
+    images: ["/og-image.png"],
+  },
+
+  // 7. Control Search Engine Behavior
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    "max-video-preview": -1,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

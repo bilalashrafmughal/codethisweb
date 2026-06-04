@@ -7,12 +7,10 @@ import reviews from "@/components/sections/Reviews"; // Fixing naming if needed 
 import { FaRocket, FaCheckCircle, FaUserShield } from "react-icons/fa";
 
 export const metadata = {
+  // 1. Core SEO Configuration
   title: "Professional Digital Solutions & AI Business Automation",
   description:
     "Explore CodeThisWeb's comprehensive catalog of digital systems: SaaS development, AI-powered automation, custom CRM solutions, and high-performance web engineering designed for ROI and business growth.",
-  alternates: {
-    canonical: "https://codethisweb.com/services",
-  },
   keywords: [
     "Custom Software Solutions",
     "Business Automation Services",
@@ -22,12 +20,66 @@ export const metadata = {
     "Enterprise Web Applications",
     "Workflow Optimization Tools",
   ],
+
+  // 2. Creator Details & Attribution
+  authors: [{ name: "CodeThisWeb Team", url: "https://codethisweb.com" }],
+  creator: "CodeThisWeb",
+  publisher: "CodeThisWeb Agency",
+
+  // 3. Application & Category Parameters
+  category: "Software Engineering",
+
+  // 4. Metadata Base & Canonical Links
+  metadataBase: new URL("https://codethisweb.com"),
+  alternates: {
+    canonical: "/services",
+  },
+
+  // 5. Open Graph (Social Media Sharing)
   openGraph: {
+    type: "website",
     title: "High-Impact Digital Solutions for Modern Businesses | CodeThisWeb",
     description:
       "Transforming business challenges into scalable digital products. From AI automation to dedicated SaaS platforms.",
     url: "https://codethisweb.com/services",
-    type: "website",
+    siteName: "CodeThisWeb Agency",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "CodeThisWeb Services - Solutions Built for Growth",
+      },
+    ],
+  },
+
+  // 6. Twitter Cards
+  twitter: {
+    card: "summary_large_image",
+    site: "@codethisweb",
+    creator: "@codethisweb",
+    title: "CodeThisWeb | Build Scalable Digital Systems",
+    description:
+      "Transforming business challenges into scalable digital products. From AI automation to dedicated SaaS platforms.",
+    images: ["/og-image.png"],
+  },
+
+  // 7. Control Search Engine Behavior
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    "max-video-preview": -1,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
