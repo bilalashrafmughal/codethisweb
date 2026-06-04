@@ -36,7 +36,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="cursor-pointer w-fit"
             >
-              <motion.div
+              {/* <motion.div
                 className="flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-300 dark:border-emerald-700 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors"
                 animate={{ y: [0, -3, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
@@ -45,7 +45,7 @@ export default function Hero() {
                 <span className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
                   Upwork Top-Rated ⭐
                 </span>
-              </motion.div>
+              </motion.div> */}
             </a>
           </motion.div>
 
@@ -100,9 +100,9 @@ export default function Hero() {
             variants={staggerContainer}
           >
             {[
-              { number: "50+", label: "Projects" },
-              { number: "6+", label: "Years Exp" },
-              { number: "100%", label: "Satisfied" },
+              // { number: "50+", label: "Projects" },
+              // { number: "6+", label: "Years Exp" },
+              // { number: "100%", label: "Satisfied" },
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
@@ -193,7 +193,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Floating Upwork badge - bottom left */}
-            <motion.div
+            {/* <motion.div
               className="absolute -bottom-6 -left-6 bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl px-4 py-3 shadow-lg border border-white/80 dark:border-white/10 z-20 backdrop-blur-sm"
               animate={{ y: [0, 8, 0] }}
               transition={{
@@ -208,7 +208,7 @@ export default function Hero() {
               <p className="text-xs text-emerald-700 dark:text-emerald-300 font-semibold">
                 Top-Rated
               </p>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </motion.div>
       </motion.div>

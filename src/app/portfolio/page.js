@@ -89,7 +89,7 @@ export default function Home() {
     <main className="w-full bg-white dark:bg-black">
       <Navbar />
       <Hero />
-      <About />
+      {/* <About /> */}
       <Services />
       <Skills />
       <Projects />
